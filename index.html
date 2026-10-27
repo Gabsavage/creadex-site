@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#bdf57c">
+  <meta name="description" content="Découvre les créatures de Creature Rumble.">
+  <title>Créadex — Creature Rumble</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="scanline" aria-hidden="true"></div>
+  <div class="app-shell">
+    <aside class="rail">
+      <a class="brand" href="#top" aria-label="Creature Rumble — accueil">
+        <span class="brand-mark"><i></i><i></i><i></i><i></i></span>
+        <span class="brand-type">CREATURE<br><b>RUMBLE</b></span>
+      </a>
+      <div class="rail-label" data-i18n="menu">MENU</div>
+      <nav class="rail-nav" aria-label="Navigation principale">
+        <a class="rail-link active" href="#top" aria-current="page"><span class="rail-icon">▦</span><span>Créadex</span></a>
+        <button class="rail-link" id="families-shortcut"><span class="rail-icon">⌘</span><span data-i18n="families">Familles</span></button>
+        <button class="rail-link" id="types-shortcut"><span class="rail-icon">◉</span><span data-i18n="types">Types</span></button>
+      </nav>
+      <div class="device-status"><span data-i18n="energy">ÉNERGIE DU DEX</span><div class="energy-track"><i></i></div><b data-i18n="ready">PRÊT</b></div>
+    </aside>
+
+    <main id="top">
+      <header class="topbar">
+        <div class="crumb"><span data-i18n="world">MONDE RUMBLE</span><b>›</b><strong>CRÉADEX</strong></div>
+        <div class="top-meta"><span class="mode-indicator"></span> <span data-i18n="exploreMode">MODE EXPLORATION</span> <span class="top-divider"></span> <span data-i18n="dexReady">CRÉADEX PRÊT</span>
+          <div class="language-toggle" role="group" aria-label="Langue / Language"><button type="button" data-lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+        </div>
+        <button class="mobile-menu" id="mobile-menu" aria-label="Ouvrir les filtres">☰</button>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-mark">✳</span> <span data-i18n="guideTag">TON GUIDE DES CRÉATURES</span></div>
+          <h1>CRÉA<span>DEX</span><sup>®</sup></h1>
+          <p class="hero-subtitle" data-i18n="tagline">Toutes les créatures de ton aventure, réunies ici.</p>
+          <div class="hero-stats">
+            <div><strong id="total-count">107</strong><span data-i18n="creatures">CRÉATURES</span></div>
+            <div><strong id="family-count">—</strong><span data-i18n="families">FAMILLES</span></div>
+            <div><strong id="illustrated-count">—</strong><span data-i18n="illustrated">ILLUSTRÉES</span></div>
+          </div>
+        </div>
+        <div class="hero-art-wrap" aria-hidden="true">
+          <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+          <div class="hero-crosshair cross-a">+</div><div class="hero-crosshair cross-b">+</div>
+          <div class="hero-beam"></div>
+          <div class="hero-creature" id="hero-creature"></div>
+          <div class="hero-readout" id="hero-readout"><span data-i18n="featured">À LA UNE</span><b>FLAMBÊÊ</b></div>
+        </div>
+        <div class="hero-corner top-right"></div><div class="hero-corner bottom-left"></div>
+      </section>
+
+      <section class="catalogue-head">
+        <div>
+          <h2><span data-i18n="creatureList">Les créatures</span> <span id="filtered-count">107</span></h2>
+        </div>
+        <div class="catalogue-tools">
+          <label class="searchbox"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="Nom, numéro, type…" data-i18n-placeholder="searchPlaceholder" autocomplete="off"><kbd>/</kbd></label>
+          <button class="sort-button" id="sort-button"><span data-i18n="sortLabel">TRI : N°</span><b>↕</b></button>
+        </div>
+      </section>
+
+      <section class="type-bar" aria-label="Filtrer par type" data-i18n-aria="typeFilterAria">
+        <button class="type-chip selected" data-type="all"><span class="type-symbol">✳</span> <span data-i18n="allTypes">TOUS LES TYPES</span></button>
+        <div class="type-scroll" id="type-filters"></div>
+      </section>
+
+      <div class="content-grid">
+        <aside class="filter-panel" id="filter-panel">
+            <div class="panel-heading"><span data-i18n="filters">FILTRES</span><button id="reset-filters" data-i18n="clear">EFFACER</button></div>
+          <div class="filter-group">
+            <div class="filter-title" data-i18n="stageFilter">STADE <span>+</span></div>
+            <label class="check-row"><input type="checkbox" value="1" name="star"><span class="custom-check"></span><span data-i18n="chibi">Chibi évolutif</span><em>01★</em></label>
+            <label class="check-row"><input type="checkbox" value="2" name="star"><span class="custom-check"></span><span data-i18n="medium">Medium</span><em>02★</em></label>
+            <label class="check-row"><input type="checkbox" value="3" name="star"><span class="custom-check"></span><span data-i18n="imposing">Imposant</span><em>03★</em></label>
+            <label class="check-row"><input type="checkbox" value="0" name="star"><span class="custom-check"></span><span data-i18n="independent">Indépendant</span><em>00★</em></label>
+          </div>
+          <div class="filter-group">
+            <div class="filter-title" data-i18n="rarityFilter">RARETÉ <span>+</span></div>
+            <select id="rarity-filter" aria-label="Filtrer par rareté">
+              <option value="all" data-i18n="allRarities">Toutes les raretés</option>
+              <option value="Commun" data-rarity="Commun">Commun</option><option value="Peu commun" data-rarity="Peu commun">Peu commun</option><option value="Rare" data-rarity="Rare">Rare</option>
+              <option value="Épique" data-rarity="Épique">Épique</option><option value="Légendaire" data-rarity="Légendaire">Légendaire</option><option value="Secrète" data-rarity="Secrète">Secrète</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <div class="filter-title" data-i18n="morphologyFilter">MORPHOLOGIE <span>+</span></div>
+            <select id="morph-filter" aria-label="Filtrer par morphologie"><option value="all" data-i18n="allForms">Toutes les formes</option></select>
+          </div>
+          <div class="filter-group">
+            <div class="filter-title" data-i18n="familyFilter">FAMILLE <span>+</span></div>
+            <select id="family-filter" aria-label="Filtrer par famille"><option value="all" data-i18n="allFamilies">Toutes les familles</option></select>
+          </div>
+        </aside>
+
+        <section class="results-area" aria-live="polite">
+          <div class="results-toolbar"><span id="results-label">107 CRÉATURES</span></div>
+          <div class="creature-grid" id="creature-grid"></div>
+          <div class="empty-state" id="empty-state" hidden><span>?</span><strong data-i18n="noCreatures">Aucune créature trouvée</strong><p data-i18n="tryAnother">Essaie un autre nom ou retire un filtre.</p><button id="empty-reset" data-i18n="clearFilters">Effacer les filtres</button></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="detail-dialog" class="detail-dialog">
+    <button class="dialog-close" id="dialog-close" aria-label="Fermer" data-i18n-aria="close">×</button>
+    <div class="detail-content" id="detail-content"></div>
+  </dialog>
+  <div class="dialog-backdrop" id="dialog-backdrop"></div>
+  <script src="app.js"></script>
+</body>
+</html>
