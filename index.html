@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261104f">
+  <link rel="stylesheet" href="styles.css?v=20261104g">
   <script type="importmap">
     { "imports": {
       "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
@@ -39,12 +39,13 @@
         <label class="search"><img src="assets/ui/glyph_target.png" alt=""><input id="search" type="search" autocomplete="off" data-i18n-placeholder="search"><kbd>/</kbd></label>
         <button type="button" class="btn btn-secondary" id="sort"><span class="ol" id="sort-label">N° ↑</span></button>
         <button type="button" class="btn btn-secondary" id="reset"><span class="ol" data-i18n="reset">Effacer</span></button>
+        <button type="button" class="btn btn-secondary filters-btn" id="filters-btn" aria-expanded="false" aria-controls="more-filters"><span class="ol" data-i18n="filters">Filtres</span><b class="filters-dot" id="filters-dot" hidden></b></button>
       </div>
       <div class="toolbar-row">
         <span class="label-yellow ol" data-i18n="type">Type</span>
         <div class="type-row" id="type-row" role="group"></div>
       </div>
-      <div class="toolbar-row">
+      <div class="toolbar-row more-filters" id="more-filters">
         <span class="label-yellow ol" data-i18n="rarity">Rareté</span>
         <div class="pill-row" id="rarity-row" role="group"></div>
         <span class="label-yellow ol" data-i18n="show">Voir</span>
@@ -84,6 +85,6 @@
     </div>
   </div>
 
-  <script type="module" src="app.js?v=20261104f"></script>
+  <script type="module" src="app.js?v=20261104g"></script>
 </body>
 </html>

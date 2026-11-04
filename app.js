@@ -1,8 +1,8 @@
 // Créadex site: data/creadex.json is generated from the game repository by tools/sync_game.py.
-import { createBackdrop } from './backdrop.js?v=20261104f';
+import { createBackdrop } from './backdrop.js?v=20261104g';
 const TEXT = {
   fr: {
-    search: 'Nom, numéro, type…', reset: 'Effacer', type: 'Type', rarity: 'Rareté', show: 'Voir', all: 'Tous',
+    search: 'Nom, n°, type…', reset: 'Effacer', filters: 'Filtres', type: 'Type', rarity: 'Rareté', show: 'Voir', all: 'Tous',
     none: 'Aucune créature trouvée', creatures: 'Créatures', count: (n, a, m) => `${n} créatures · ${a} illustrées · ${m} en 3D`,
     listCount: n => `${n} affichée${n > 1 ? 's' : ''}`, illustrated: 'Illustrées', in3d: 'En 3D',
     foot: 'Données du jeu : docs/creadex/creadex.csv de creatures-rumble.',
@@ -15,7 +15,7 @@ const TEXT = {
     stage: ['Indépendante', 'Chibi', 'Medium', 'Imposante'],
   },
   en: {
-    search: 'Name, number, type…', reset: 'Clear', type: 'Type', rarity: 'Rarity', show: 'Show', all: 'All',
+    search: 'Name, no., type…', reset: 'Clear', filters: 'Filters', type: 'Type', rarity: 'Rarity', show: 'Show', all: 'All',
     none: 'No creatures found', creatures: 'Creatures', count: (n, a, m) => `${n} creatures · ${a} illustrated · ${m} in 3D`,
     listCount: n => `${n} shown`, illustrated: 'Illustrated', in3d: 'In 3D',
     foot: 'Game data: creatures-rumble docs/creadex/creadex.csv.',
@@ -106,6 +106,11 @@ function renderFilters() {
     .map(r => `<button type="button" class="pill ol" style="--c:${rarityColor(r)}" data-rarity="${esc(r)}" ${pressed(state.rarities.has(r))}>${esc(rarityName(r))}</button>`).join('');
   $('flag-row').innerHTML = [['art', t('illustrated')], ['3d', t('in3d')]]
     .map(([k, label]) => `<button type="button" class="pill neutral ol" data-flag="${k}" ${pressed(state.flags.has(k))}>${esc(label)}</button>`).join('');
+  renderFilterDot();
+}
+
+function renderFilterDot() {
+  $('filters-dot').hidden = !(state.rarities.size || state.flags.size);
 }
 
 function applyLanguage() {
@@ -180,7 +185,7 @@ function renderSide(s) {
 }
 
 async function getViewer() {
-  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261104f').then(m => m.createViewer);
+  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261104g').then(m => m.createViewer);
   return viewerPromise;
 }
 
@@ -228,17 +233,24 @@ function openDetail(s, { push = true } = {}) {
   if (changed) renderStage(s);
   const dlg = $('detail');
   if (dlg.hidden) { dlg.hidden = false; document.body.classList.add('locked'); dlg.scrollTop = 0; $('close').focus({ preventScroll: true }); }
-  if (push && location.hash !== `#${s.id}`) history.replaceState(null, '', `#${s.id}`);
+  if (push && location.hash !== `#${s.id}`) {
+    // The phone's back button closes the page: one history entry while the page is open.
+    if (history.state?.dex) history.replaceState({ dex: true }, '', `#${s.id}`);
+    else history.pushState({ dex: true }, '', `#${s.id}`);
+  }
 }
 
-function closeDetail() {
+function closeDetail({ fromHistory = false } = {}) {
   if ($('detail').hidden) return;
   $('detail').hidden = true;
   backdrop?.stop();
   document.body.classList.remove('locked');
   viewer?.dispose(); viewer = null;
   const last = active; active = null;
-  history.replaceState(null, '', location.pathname + location.search);
+  if (!fromHistory) {
+    if (history.state?.dex) history.back();
+    else history.replaceState(null, '', location.pathname + location.search);
+  }
   document.querySelector(`.card[data-number="${last?.number}"]`)?.focus({ preventScroll: false });
 }
 
@@ -250,6 +262,10 @@ function step(delta) {
 
 function bind() {
   $('search').addEventListener('input', e => { state.query = e.target.value; renderGrid(); });
+  $('filters-btn').addEventListener('click', () => {
+    const open = $('more-filters').classList.toggle('open');
+    $('filters-btn').setAttribute('aria-expanded', String(open));
+  });
   $('sort').addEventListener('click', () => { state.ascending = !state.ascending; renderGrid(); });
   const reset = () => { state.query = ''; $('search').value = ''; state.element = 'all'; state.rarities.clear(); state.flags.clear(); renderFilters(); renderGrid(); };
   $('reset').addEventListener('click', reset);
@@ -263,7 +279,7 @@ function bind() {
     lang = b.dataset.lang; store.set('creadex-language', lang); applyLanguage(); renderFilters(); renderGrid();
     if (active) { renderNameRow(active); renderSide(active); renderInfo(active); renderStage(active); }
   });
-  $('close').addEventListener('click', closeDetail);
+  $('close').addEventListener('click', () => closeDetail());
   $('prev').addEventListener('click', () => step(-1));
   $('next').addEventListener('click', () => step(1));
   $('info').addEventListener('click', e => { const b = e.target.closest('[data-number]'); if (b) openDetail(byNumber.get(b.dataset.number)); });
@@ -288,12 +304,13 @@ function bind() {
     if (e.key === '/' && document.activeElement?.tagName !== 'INPUT') { e.preventDefault(); $('search').focus(); }
   });
   window.addEventListener('hashchange', openFromHash);
+  $('detail').addEventListener('scroll', () => $('detail').classList.toggle('scrolled', $('detail').scrollTop > 8), { passive: true });
 }
 
 function openFromHash() {
   const id = decodeURIComponent(location.hash.slice(1));
   const s = id && data.species.find(x => x.id === id || x.number === id);
-  if (s) openDetail(s, { push: false }); else if (!id) closeDetail();
+  if (s) openDetail(s, { push: false }); else if (!id) closeDetail({ fromHistory: true });
 }
 
 async function start() {
@@ -301,8 +318,8 @@ async function start() {
   applyLanguage();
   try {
     const [creadex, hab] = await Promise.all([
-      fetch('data/creadex.json?v=20261104f', { cache: 'no-cache' }).then(r => r.json()),
-      fetch('data/habitats.json?v=20261104f').then(r => r.json()).catch(() => ({ habitats: {} })),
+      fetch('data/creadex.json?v=20261104g', { cache: 'no-cache' }).then(r => r.json()),
+      fetch('data/habitats.json?v=20261104g').then(r => r.json()).catch(() => ({ habitats: {} })),
     ]);
     data = creadex; habitats = hab.habitats || {};
     data.species.forEach(s => byNumber.set(s.number, s));
