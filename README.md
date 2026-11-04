@@ -45,3 +45,6 @@ Lien direct vers une fiche : `#<id>` (ex. `#embaa`).
 ```
 python3 -m http.server 8000
 ```
+
+Cache : à chaque mise en ligne qui change le CSS ou le JS, monter le `?v=` de `index.html`
+(styles.css, app.js) et d'`app.js` (viewer.js, données), sinon les navigateurs gardent l'ancien fichier.
