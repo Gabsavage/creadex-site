@@ -4,17 +4,17 @@
 // the type's stylised word scrolling along both sides of each line. Everything is relative to the
 // screen height, so it fits any screen.
 
-// Starting values from the maquette (to align with the game's when they are calibrated).
+// Gab's settings from the maquette (04/11/2026); the game uses the same ones.
 const S = {
-  cornerH: 0.30,   // top corner: height taken on the left edge (fraction of the height)
-  cornerW: 0.42,   // top corner: length taken on the top edge (fraction of the width)
+  cornerH: 0.25,   // top corner: height taken on the left edge (fraction of the height)
+  cornerW: 0.58,   // top corner: length taken on the top edge (fraction of the width)
   textSec: 14,     // seconds for the text to move by one tile
   lineMul: 18,     // light lines speed, × the text
   lineThick: 1,
-  textSize: 0.05,  // fraction of the height
-  gap: 1.8,        // space between two words, × the word width
-  dist: 0.5,       // text row distance to the line, × the row height
-  outlineLight: 14, outlineDark: 7, // outline, % of the text size
+  textSize: 0.085, // fraction of the height
+  gap: 2.2,        // space between two words, × the word width
+  dist: 0.65,      // text row distance to the line, × the row height
+  outlineLight: 7, outlineDark: 7, // outline, % of the text size
   opacity: 0.16,
 };
 
