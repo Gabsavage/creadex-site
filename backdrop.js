@@ -11,7 +11,7 @@ const S = {
   textSec: 14,     // seconds for the text to move by one tile
   lineMul: 18,     // light lines speed, × the text
   lineThick: 1,
-  textSize: 0.085, // fraction of the height
+  textSize: 0.075, // fraction of the height
   gap: 2.2,        // space between two words, × the word width
   dist: 0.65,      // text row distance to the line, × the row height
   outlineLight: 7, outlineDark: 7, // outline, % of the text size
