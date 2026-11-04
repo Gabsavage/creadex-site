@@ -1,0 +1,17 @@
+{
+  "about": "One habitat per type, shown behind the creature in the 3D viewer. model = a GLB under assets/habitats/ (the creature stands at its origin, Y up, 1 unit = 1 stud); null = the placeholder stage in the type's colors. scale is optional.",
+  "habitats": {
+    "Normal": { "model": null },
+    "Fire": { "model": null },
+    "Water": { "model": null },
+    "Nature": { "model": null },
+    "Lightning": { "model": null },
+    "Wind": { "model": null },
+    "Earth": { "model": null },
+    "Ice": { "model": null },
+    "Toxic": { "model": null },
+    "Metal": { "model": null },
+    "Shadow": { "model": null },
+    "Light": { "model": null }
+  }
+}

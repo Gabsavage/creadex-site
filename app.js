@@ -1,139 +1,311 @@
-const TYPE_META={
-  'Normal':{color:'#bbcbd1',symbol:'◌',badge:'normal',en:'Normal'},'Feu':{color:'#ff875f',symbol:'✦',badge:'feu',en:'Fire'},'Eau':{color:'#55d7ff',symbol:'◒',badge:'eau',en:'Water'},
-  'Nature':{color:'#8fe275',symbol:'❋',badge:'nature',en:'Nature'},'Foudre':{color:'#ffe16b',symbol:'ϟ',badge:'foudre',en:'Lightning'},'Vent':{color:'#8be7da',symbol:'≋',badge:'vent',en:'Wind'},
-  'Terre':{color:'#dfad78',symbol:'⬡',badge:'terre',en:'Earth'},'Glace':{color:'#a6e5ff',symbol:'❄',badge:'glace',en:'Ice'},'Toxique':{color:'#d290eb',symbol:'☣',badge:'toxique',en:'Toxic'},
-  'Métal':{color:'#c6c9cf',symbol:'⬢',badge:'metal',en:'Metal'},'Ombre':{color:'#ac91ff',symbol:'◐',badge:'ombre',en:'Shadow'},'Lumière':{color:'#fff19a',symbol:'✧',badge:'lumiere',en:'Light'}
+// Créadex site: data/creadex.json is generated from the game repository by tools/sync_game.py.
+const TEXT = {
+  fr: {
+    search: 'Nom, numéro, type…', reset: 'Effacer', type: 'Type', rarity: 'Rareté', show: 'Voir', all: 'Tous',
+    none: 'Aucune créature trouvée', creatures: 'Créatures', count: (n, a, m) => `${n} créatures · ${a} illustrées · ${m} en 3D`,
+    listCount: n => `${n} affichée${n > 1 ? 's' : ''}`, illustrated: 'Illustrées', in3d: 'En 3D',
+    foot: 'Données du jeu : docs/creadex/creadex.csv de creatures-rumble.',
+    category: 'Catégorie', hp: 'PV', atk: 'ATQ', spd: 'VIT', basic: 'Base', special: 'Spécial', soon: 'À venir',
+    weak: 'Faiblesses', resist: 'Résistances', noneListed: 'Aucune', evolutions: 'Évolutions', size: 'Taille', form: 'Forme',
+    zone: 'Zone', unassigned: 'Pas encore', lent: 'Prêtée', view3d: '3D', art: 'Dessin', turn: 'Turnaround', shiny: 'Shiny',
+    loading: 'Chargement…', no3d: 'Modèle 3D à venir', noArt: 'Illustration à venir', provisional: 'stats provisoires',
+    noStats: 'stats à définir', provisionalHint: 'Stats de départ du jeu (aucune valeur dans le Créadex) · * attaque par défaut du type', prev: 'Précédente', next: 'Suivante', close: 'Fermer', inGame: 'EN JEU', anim: {
+      Idle: 'Repos', Walk: 'Marche', Attack: 'Attaque', Special: 'Spécial', Hurt: 'Touché', Victory: 'Victoire', Spawn: 'Arrivée', Wobble: 'Capture', Faint: 'K.O.' },
+    stage: ['Indépendante', 'Chibi', 'Medium', 'Imposante'],
+  },
+  en: {
+    search: 'Name, number, type…', reset: 'Clear', type: 'Type', rarity: 'Rarity', show: 'Show', all: 'All',
+    none: 'No creatures found', creatures: 'Creatures', count: (n, a, m) => `${n} creatures · ${a} illustrated · ${m} in 3D`,
+    listCount: n => `${n} shown`, illustrated: 'Illustrated', in3d: 'In 3D',
+    foot: 'Game data: creatures-rumble docs/creadex/creadex.csv.',
+    category: 'Category', hp: 'HP', atk: 'ATK', spd: 'SPD', basic: 'Basic', special: 'Special', soon: 'Coming soon',
+    weak: 'Weaknesses', resist: 'Resistances', noneListed: 'None', evolutions: 'Evolutions', size: 'Size', form: 'Form',
+    zone: 'Zone', unassigned: 'Not yet', lent: 'Lent', view3d: '3D', art: 'Art', turn: 'Turnaround', shiny: 'Shiny',
+    loading: 'Loading…', no3d: '3D model coming soon', noArt: 'Artwork coming soon', provisional: 'provisional stats',
+    noStats: 'stats to be set', provisionalHint: 'Game starting stats (none in the Créadex yet) · * default attack of the type', prev: 'Previous', next: 'Next', close: 'Close', inGame: 'IN GAME', anim: {
+      Idle: 'Idle', Walk: 'Walk', Attack: 'Attack', Special: 'Special', Hurt: 'Hurt', Victory: 'Victory', Spawn: 'Spawn', Wobble: 'Wobble', Faint: 'Faint' },
+    stage: ['Independent', 'Chibi', 'Medium', 'Imposing'],
+  },
 };
-const TEXT={
-  fr:{menu:'MENU',families:'FAMILLES',types:'TYPES',world:'MONDE RUMBLE',exploreMode:'MODE EXPLORATION',dexReady:'CRÉADEX PRÊT',guideTag:'TON GUIDE DES CRÉATURES',tagline:'Toutes les créatures de ton aventure, réunies ici.',creatures:'CRÉATURES',illustrated:'ILLUSTRÉES',featured:'À LA UNE',creatureList:'Les créatures',searchPlaceholder:'Nom, numéro, type…',sortLabel:'TRI : N°',allTypes:'TOUS LES TYPES',filters:'FILTRES',clear:'EFFACER',stageFilter:'STADE',chibi:'Chibi évolutif',medium:'Medium',imposing:'Imposant',independent:'Indépendant',rarityFilter:'RARETÉ',allRarities:'Toutes les raretés',morphologyFilter:'MORPHOLOGIE',allForms:'Toutes les formes',familyFilter:'FAMILLE',allFamilies:'Toutes les familles',noCreatures:'Aucune créature trouvée',tryAnother:'Essaie un autre nom ou retire un filtre.',clearFilters:'Effacer les filtres',notSet:'À DÉFINIR',noWeakness:'Aucune faiblesse renseignée',noResistance:'Aucune résistance renseignée',weaknesses:'FAIBLESSES',resistances:'RÉSISTANCES',stats:'STATS',balance:'· À ÉQUILIBRER',evolutions:'ÉVOLUTIONS',size:'TAILLE',upcoming:'ILLUSTRATION À VENIR',family:'FAMILLE',independentStage:'INDÉPENDANT',chibiStage:'CHIBI',mediumStage:'MEDIUM',imposingStage:'IMPOSANT',legendaryStage:'LÉGENDAIRE',secretStage:'SECRET',morphFree:'Morphologie libre',type:'TYPE',creature:'CRÉATURE',sortAsc:'TRI : N° ↑',sortDesc:'TRI : N° ↓',energy:'ÉNERGIE DU DEX',ready:'PRÊT',close:'Fermer',typeFilterAria:'Filtrer par type'},
-  en:{menu:'MENU',families:'FAMILIES',types:'TYPES',world:'RUMBLE WORLD',exploreMode:'EXPLORE MODE',dexReady:'DEX READY',guideTag:'YOUR CREATURE GUIDE',tagline:'Every creature in your adventure, gathered here.',creatures:'CREATURES',illustrated:'ILLUSTRATED',featured:'FEATURED',creatureList:'Creatures',searchPlaceholder:'Name, number, type…',sortLabel:'SORT: NO.',allTypes:'ALL TYPES',filters:'FILTERS',clear:'CLEAR',stageFilter:'STAGE',chibi:'Chibi',medium:'Medium',imposing:'Imposing',independent:'Independent',rarityFilter:'RARITY',allRarities:'All rarities',morphologyFilter:'FORM',allForms:'All forms',familyFilter:'FAMILY',allFamilies:'All families',noCreatures:'No creatures found',tryAnother:'Try another name or remove a filter.',clearFilters:'Clear filters',notSet:'TO BE SET',noWeakness:'No weaknesses listed',noResistance:'No resistances listed',weaknesses:'WEAKNESSES',resistances:'RESISTANCES',stats:'STATS',balance:'· TO BE BALANCED',evolutions:'EVOLUTIONS',size:'SIZE',upcoming:'ARTWORK COMING SOON',family:'FAMILY',independentStage:'INDEPENDENT',chibiStage:'CHIBI',mediumStage:'MEDIUM',imposingStage:'IMPOSING',legendaryStage:'LEGENDARY',secretStage:'SECRET',morphFree:'Free-form',type:'TYPE',creature:'CREATURE',sortAsc:'SORT: NO. ↑',sortDesc:'SORT: NO. ↓',energy:'DEX POWER',ready:'READY',close:'Close',typeFilterAria:'Filter by type'}
+const RARITY_FR = { Common: 'Commun', Uncommon: 'Peu commun', Rare: 'Rare', Epic: 'Épique', Legendary: 'Légendaire', Secret: 'Secrète' };
+const MORPH_FR = { Biped: 'Bipède', Bird: 'Oiseau', Fish: 'Poisson', Quadruped: 'Quadrupède', Serpent: 'Serpent', Special: 'Spécial' };
+const ANIMS = ['Idle', 'Walk', 'Attack', 'Special', 'Victory'];
+
+const $ = id => document.getElementById(id);
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const store = {
+  get(key) { try { return localStorage.getItem(key); } catch { return null; } },
+  set(key, value) { try { localStorage.setItem(key, value); } catch { /* private mode */ } },
 };
-const RARITY_EN={'Commun':'Common','Peu commun':'Uncommon','Rare':'Rare','Épique':'Epic','Légendaire':'Legendary','Secrète':'Secret'};
-const MORPH_EN={'Bipède':'Biped','Oiseau':'Bird','Poisson':'Fish','Quadrupède':'Quadruped','Serpent':'Serpent','Spécial':'Special'};
-let language=localStorage.getItem('creadex-language')==='en'?'en':'fr';
-const RARITY_COLOR={'Commun':'#a9bac0','Peu commun':'#77d795','Rare':'#68c7ff','Épique':'#d18bff','Légendaire':'#ffd36a','Secrète':'#ff80bd'};
-const byNumber=new Map();let species=[];let selectedType='all';let ascending=true;let activeSpecies=null;
-const $=id=>document.getElementById(id);
-const escapeHTML=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-const typeColor=type=>TYPE_META[type]?.color||'#48e1da';
-const clean=value=>String(value??'').trim();
-const t=key=>TEXT[language][key]||TEXT.fr[key]||key;
-const typeLabel=type=>language==='en'?(TYPE_META[type]?.en||type):type;
-const morphLabel=value=>language==='en'?(MORPH_EN[value]||value):value;
-const rarityLabel=value=>language==='en'?(RARITY_EN[value]||value):value;
-const displayName=s=>language==='en'?(s.nameEn||s.nameFr):s.nameFr;
-const familyLabel=family=>{const representative=species.find(s=>s.nameFr===family);return representative?displayName(representative):family};
-const stageTitle=s=>({0:t('independentStage'),1:t('chibiStage'),2:t('mediumStage'),3:t('imposingStage'),4:t('legendaryStage'),5:t('secretStage')}[Number(s)]||t('creature'));
-const starText=n=>Number(n)>0?'✦'.repeat(Math.min(Number(n),5)):`0★`;
-function applyLanguage(){
-  document.documentElement.lang=language;
-  document.querySelectorAll('[data-i18n]').forEach(node=>{const value=t(node.dataset.i18n);if(node.children.length&&node.firstChild?.nodeType===Node.TEXT_NODE)node.firstChild.nodeValue=value+' ';else node.textContent=value});
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(node=>node.placeholder=t(node.dataset.i18nPlaceholder));
-  document.querySelectorAll('[data-i18n-aria]').forEach(node=>node.setAttribute('aria-label',t(node.dataset.i18nAria)));
-  document.querySelectorAll('[data-rarity]').forEach(option=>option.textContent=rarityLabel(option.dataset.rarity));
-  document.querySelectorAll('[data-lang]').forEach(button=>{const active=button.dataset.lang===language;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active))});
-  $('rarity-filter')?.setAttribute('aria-label',language==='en'?'Filter by rarity':'Filtrer par rareté');
-  $('morph-filter')?.setAttribute('aria-label',language==='en'?'Filter by form':'Filtrer par morphologie');
-  $('family-filter')?.setAttribute('aria-label',language==='en'?'Filter by family':'Filtrer par famille');
+
+let lang = store.get('creadex-language') === 'en' ? 'en' : 'fr';
+let data = { elements: {}, rarities: {}, species: [] };
+let habitats = {};
+const state = { query: '', element: 'all', rarities: new Set(), flags: new Set(), ascending: true };
+const byNumber = new Map();
+let shown = [];
+let active = null;
+const view = { mode: '3d', shiny: false };
+let viewer = null, viewerPromise = null;
+
+const t = key => TEXT[lang][key];
+const nameOf = s => lang === 'fr' ? s.nameFr : s.name;
+const otherName = s => lang === 'fr' ? s.name : s.nameFr;
+const elementName = e => lang === 'fr' ? (data.elements[e]?.fr || e) : e;
+const rarityName = r => lang === 'fr' ? (RARITY_FR[r] || r) : r;
+const morphName = m => lang === 'fr' ? (MORPH_FR[m] || m) : m;
+const rarityColor = r => data.rarities[r] || '#bebebe';
+const elementColor = e => data.elements[e]?.color || '#2d3032';
+const tileOf = r => `url(assets/ui/tile_${String(r || 'Common').toLowerCase()}.png)`;
+const elementIcon = (e, cls = 'el') => data.elements[e] ? `<img class="${cls}" src="assets/elements/${esc(e)}.webp" alt="${esc(elementName(e))}" title="${esc(elementName(e))}">` : '';
+const artOf = s => s.portrait || s.image;
+
+function tile(s, { number = true } = {}) {
+  const art = artOf(s)
+    ? `<img class="art" src="${esc(artOf(s))}" alt="" loading="lazy">`
+    : `<img class="ghost" src="assets/elements/${esc(s.element)}.webp" alt="" loading="lazy">`;
+  return `<div class="tile" style="--tile:${tileOf(s.rarity)}">${art}${elementIcon(s.element)}${number ? `<span class="num ol">${esc(s.number)}</span>` : ''}${s.model && number ? `<span class="flag ol">3D</span>` : ''}</div>`;
 }
 
-function typeButton(type){
-  const meta=TYPE_META[type]||{color:'#48e1da',symbol:'◈'};
-  return `<button class="type-chip" data-type="${escapeHTML(type)}" style="--type-color:${meta.color}">${typeIcon(type,'type-symbol')}${escapeHTML(typeLabel(type).toUpperCase())}</button>`;
+function card(s) {
+  return `<button type="button" class="card" data-number="${esc(s.number)}" aria-label="${esc(nameOf(s))}, #${esc(s.number)}">
+    ${tile(s)}<span class="card-name">${esc(nameOf(s))}</span><span class="card-sub">${esc(otherName(s))}</span></button>`;
 }
-function typeIcon(type,className='type-icon'){
-  const meta=TYPE_META[type];
-  return meta?.badge?`<img class="${className}" src="assets/types/${meta.badge}.png" alt="" aria-hidden="true">`:`<span class="${className}" aria-hidden="true">${meta?.symbol||'◈'}</span>`;
-}
-function speciesTypes(s){return String(s.typeFr||'').split(/[;,/+]/).map(clean).filter(type=>TYPE_META[type]);}
-function fillSelect(id,values,label,format=value=>value){
-  const select=$(id); if(!select)return;
-  const selected=select.value;const unique=[...new Set(values.map(clean).filter(Boolean))].sort((a,b)=>format(a).localeCompare(format(b),language));
-  const first=select.options[0]; select.innerHTML='';select.append(first);
-  unique.forEach(value=>{const option=document.createElement('option');option.value=value;option.textContent=format(value);select.append(option)});
-  if([...select.options].some(option=>option.value===selected))select.value=selected;
-}
-function initFilters(){
-  const types=[...new Set(species.map(s=>clean(s.typeFr)).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'fr'));
-  $('type-filters').innerHTML=types.map(typeButton).join('');
-  fillSelect('morph-filter',species.map(s=>s.morphology),t('allForms'),morphLabel);
-  fillSelect('family-filter',species.map(s=>s.family),t('allFamilies'),familyLabel);
-  $('total-count').textContent=species.length.toString().padStart(3,'0');
-  $('illustrated-count').textContent=species.filter(s=>s.image).length.toString().padStart(2,'0');
-  const familySizes=species.reduce((counts,s)=>{const family=clean(s.family)||s.nameFr;counts.set(family,(counts.get(family)||0)+1);return counts},new Map());
-  $('family-count').textContent=[...familySizes.values()].filter(count=>count>1).length.toString().padStart(2,'0');
-  const feature=species.find(s=>s.image)||species[0];
-  if(feature){$('hero-creature').innerHTML=feature.image?`<img src="${escapeHTML(feature.image)}" alt="">`:`<span class="hero-placeholder">✦</span>`;$('hero-readout').innerHTML=`<span>${t('featured')} · #${feature.number}</span><b>${escapeHTML(displayName(feature).toUpperCase())}</b>`}
-  $('hero-creature').setAttribute('aria-hidden','true');
-}
-function selectedStars(){return [...document.querySelectorAll('input[name="star"]:checked')].map(input=>Number(input.value))}
-function getFiltered(){
-  const query=clean($('search').value).toLocaleLowerCase(language==='en'?'en':'fr');
-  const rarity=$('rarity-filter').value,morph=$('morph-filter').value,family=$('family-filter').value,stars=selectedStars();
-  const list=species.filter(s=>{
-    const matchesQuery=!query||[s.number,s.nameFr,s.nameEn,s.typeFr,s.typeEn,s.family,familyLabel(s.family),s.morphology,morphLabel(s.morphology),s.descriptionFr,s.descriptionEn,s.categoryFr,s.categoryEn].some(v=>clean(v).toLocaleLowerCase(language==='en'?'en':'fr').includes(query));
-    return matchesQuery&&(selectedType==='all'||speciesTypes(s).includes(selectedType))&&(rarity==='all'||s.rarity===rarity)&&(morph==='all'||s.morphology===morph)&&(family==='all'||s.family===family)&&(!stars.length||stars.includes(Number(s.stars)));
+
+function filtered() {
+  const q = state.query.trim().toLocaleLowerCase();
+  const list = data.species.filter(s => {
+    if (state.element !== 'all' && s.element !== state.element) return false;
+    if (state.rarities.size && !state.rarities.has(s.rarity)) return false;
+    if (state.flags.has('art') && !s.image) return false;
+    if (state.flags.has('3d') && !s.model) return false;
+    if (!q) return true;
+    return [s.number, s.name, s.nameFr, s.element, elementName(s.element), s.category, s.categoryFr, s.id]
+      .some(v => String(v || '').toLocaleLowerCase().includes(q));
   });
-  return list.sort((a,b)=>ascending?a.number.localeCompare(b.number):b.number.localeCompare(a.number));
+  return list.sort((a, b) => (state.ascending ? 1 : -1) * a.number.localeCompare(b.number));
 }
-function card(s){
-  const meta=TYPE_META[s.typeFr]||{color:'#48e1da',symbol:'◈'};const rarity=RARITY_COLOR[s.rarity]||'#a9bac0';
-  const types=speciesTypes(s);const name=displayName(s);const art=s.image?`<img src="${escapeHTML(s.image)}" alt="${language==='en'?'Illustration of':'Illustration de'} ${escapeHTML(name)}" loading="lazy">`:`<div class="art-missing"><span class="sigil">${typeIcon(s.typeFr,'sigil-icon')}</span><small>${t('upcoming')}</small></div>`;
-  return `<article class="creature-card" data-number="${escapeHTML(s.number)}" tabindex="0" role="button" aria-label="${language==='en'?'Open':'Ouvrir'} ${escapeHTML(name)}">
-    <div class="card-top"><span class="dex-number"><b>${language==='en'?'NO.':'N°'}</b> ${escapeHTML(s.number)}</span><span class="card-stars" title="${escapeHTML(stageTitle(s.stars))}">${starText(s.stars)}</span></div>
-    <div class="card-art" style="--art-accent:${meta.color}">${art}</div>
-    <div class="card-info"><div class="card-name-row"><span class="card-name">${escapeHTML(name)}</span><i class="rarity-dot" style="--rarity:${rarity}" title="${escapeHTML(rarityLabel(s.rarity))}"></i></div>
-      <div class="card-name-en">${escapeHTML(language==='en'?s.nameFr:s.nameEn)}</div>
-      <div class="card-tags">${types.length?types.map(type=>`<span class="tag type" style="--type-color:${typeColor(type)}">${typeIcon(type,'tag-type-icon')}${escapeHTML(typeLabel(type))}</span>`).join(''):`<span class="tag type">${t('notSet')}</span>`}<span class="tag">${escapeHTML(morphLabel(s.morphology)||t('morphFree'))}</span></div>
-      <div class="card-family">${t('family')} <b>${escapeHTML(familyLabel(s.family||s.nameFr))}</b></div>
-    </div></article>`;
+
+function renderGrid() {
+  shown = filtered();
+  $('grid').innerHTML = shown.map(card).join('');
+  $('empty').hidden = shown.length > 0;
+  $('list-count').textContent = t('listCount')(shown.length);
+  $('sort-label').textContent = `N° ${state.ascending ? '↑' : '↓'}`;
 }
-function render(){
-  const list=getFiltered();$('creature-grid').innerHTML=list.map(card).join('');$('filtered-count').textContent=list.length.toString().padStart(3,'0');$('results-label').textContent=`${list.length} ${t('creatures')}`;
-  $('empty-state').hidden=list.length!==0;$('creature-grid').hidden=list.length===0;
-  document.querySelectorAll('.creature-card').forEach(el=>{const activate=()=>openDetail(byNumber.get(el.dataset.number));el.addEventListener('click',activate);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate()}})});
+
+function renderFilters() {
+  const elements = Object.keys(data.elements);
+  const pressed = on => `aria-pressed="${on}"`;
+  $('type-row').innerHTML = `<button type="button" class="type-btn all ol" data-element="all" ${pressed(state.element === 'all')}>${esc(t('all'))}</button>`
+    + elements.map(e => `<button type="button" class="type-btn" data-element="${esc(e)}" ${pressed(state.element === e)} aria-label="${esc(elementName(e))}" title="${esc(elementName(e))}"><img src="assets/elements/${esc(e)}.webp" alt=""></button>`).join('');
+  const used = new Set(data.species.map(s => s.rarity));
+  $('rarity-row').innerHTML = Object.keys(data.rarities).filter(r => used.has(r))
+    .map(r => `<button type="button" class="pill ol" style="--c:${rarityColor(r)}" data-rarity="${esc(r)}" ${pressed(state.rarities.has(r))}>${esc(rarityName(r))}</button>`).join('');
+  $('flag-row').innerHTML = [['art', t('illustrated')], ['3d', t('in3d')]]
+    .map(([k, label]) => `<button type="button" class="pill neutral ol" data-flag="${k}" ${pressed(state.flags.has(k))}>${esc(label)}</button>`).join('');
 }
-function familyMembers(s){return species.filter(item=>(clean(s.family)&&clean(item.family)===clean(s.family))||item.number===s.number).sort((a,b)=>a.number.localeCompare(b.number));}
-function typePill(type){const meta=TYPE_META[type]||{color:'#48e1da',symbol:'◈'};return `<span class="detail-type" style="color:${meta.color};background:${meta.color}12">${typeIcon(type,'detail-type-icon')}${escapeHTML(typeLabel(type).toUpperCase())}</span>`}
-function typeSummary(types,empty){return types.length?types.filter(t=>TYPE_META[t]).map(t=>`<span class="summary-type">${typeIcon(t,'summary-type-icon')}${escapeHTML(typeLabel(t))}</span>`).join(''):`<span>${empty}</span>`}
-function weaknessSummary(s){return typeSummary(s.weaknesses,t('noWeakness'))}
-function resistanceSummary(s){return typeSummary(s.resistances.filter(value=>value!=='—'),t('noResistance'))}
-function statRow(label,value){const n=Number(value);const width=Number.isFinite(n)&&n>0?Math.min(100,Math.max(5,n/2)) : 0;return `<div class="stat-row"><span>${label}</span><div class="stat-track"><div class="stat-fill" style="--fill:${width}%"></div></div><span class="stat-value">${n||'—'}</span></div>`}
-function openDetail(s){
-  if(!s)return;activeSpecies=s;const members=familyMembers(s);const name=displayName(s);const art=s.image?`<img src="${escapeHTML(s.image)}" alt="${language==='en'?'Illustration of':'Illustration de'} ${escapeHTML(name)}">`:`<span class="detail-no-art">${typeIcon(s.typeFr,'detail-placeholder-icon')}</span>`;
-  const types=speciesTypes(s).map(typePill).join('');
-  $('detail-content').innerHTML=`<div class="detail-layout"><div class="detail-visual">${art}<div class="detail-visual-label">#${s.number} / ${escapeHTML(stageTitle(s.stars))}</div></div>
-  <div class="detail-data"><div class="detail-overline">${escapeHTML(language==='en'?(s.categoryEn||'Creature'):s.categoryFr||'Créature')}</div><div class="detail-title-row"><h2 class="detail-title">${escapeHTML(name)}</h2><span class="detail-number">#${escapeHTML(s.number)}</span></div>
-  <div class="detail-english">${escapeHTML(language==='en'?s.nameFr:s.nameEn)} · ${escapeHTML(language==='en'?(s.categoryEn||'Creature'):s.categoryFr||'Créature')}</div><div class="detail-category">${escapeHTML(stageTitle(s.stars))} <span style="color:#ffe04b">${starText(s.stars)}</span>　/　${escapeHTML(morphLabel(s.morphology)||t('morphFree'))}</div>
-  <p class="detail-desc">${escapeHTML(language==='en'?(s.descriptionEn||s.descriptionFr||''):s.descriptionFr||'')}</p><div class="detail-types">${types}</div>
-  <div class="detail-split"><div class="detail-mini"><span>${t('weaknesses')}</span><b>${weaknessSummary(s)}</b></div><div class="detail-mini"><span>${t('resistances')}</span><b>${resistanceSummary(s)}</b></div></div>
-  <section class="detail-stats"><h3>${t('stats')} <i style="font-style:normal;color:#ffdf42">${t('balance')}</i></h3>${statRow(language==='en'?'HP':'PV',s.hp)}${statRow(language==='en'?'ATK':'ATQ',s.atk)}${statRow(language==='en'?'SPD':'VIT',s.speed)}</section>
-  <section class="evo-section"><h3 class="evo-title">${t('evolutions')}</h3><div class="evo-chain">${members.map((m,i)=>`${i?'<span class="evo-arrow">›</span>':''}<button class="evo-node ${m.number===s.number?'active':''}" data-evo="${m.number}"><b>${escapeHTML(displayName(m))}</b><span>#${escapeHTML(m.number)} · ${escapeHTML(stageTitle(m.stars))}</span></button>`).join('')}</div></section>
-  <div class="detail-footer">${speciesTypes(s).map(typeLabel).map(escapeHTML).join(' / ')||t('notSet')}　·　${t('size')}: ${escapeHTML(s.studs||'—')} ${language==='en'?'STUDS':'STUDS'}</div></div></div>`;
-  const dlg=$('detail-dialog');$('dialog-backdrop').classList.add('open');dlg.showModal();
-  dlg.querySelectorAll('[data-evo]').forEach(button=>button.addEventListener('click',()=>openDetail(byNumber.get(button.dataset.evo))));
+
+function applyLanguage() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(n => { n.textContent = t(n.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(n => { n.placeholder = t(n.dataset.i18nPlaceholder); });
+  document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  $('list-title').textContent = t('creatures');
+  const all = data.species;
+  $('head-count').textContent = t('count')(all.length, all.filter(s => s.image).length, all.filter(s => s.model).length);
+  $('prev').setAttribute('aria-label', t('prev'));
+  $('next').setAttribute('aria-label', t('next'));
+  $('close').setAttribute('aria-label', t('close'));
 }
-function closeDetail(){const dlg=$('detail-dialog');if(dlg.open)dlg.close();$('dialog-backdrop').classList.remove('open')}
-function resetFilters(){selectedType='all';$('search').value='';$('rarity-filter').value='all';$('morph-filter').value='all';$('family-filter').value='all';document.querySelectorAll('input[name="star"]').forEach(i=>i.checked=false);document.querySelectorAll('.type-chip').forEach(b=>b.classList.toggle('selected',b.dataset.type==='all'));render()}
-async function start(){
+
+// ── Detail page ─────────────────────────────────────────
+function family(s) {
+  return data.species.filter(x => x.family === s.family).sort((a, b) => a.number.localeCompare(b.number));
+}
+
+function statCase(key, icon, value, max = 110) {
+  const w = value ? Math.max(6, Math.min(100, value / max * 100)) : 0;
+  return `<div class="case stat"><span class="label-yellow ol"><img src="assets/icons/${icon}.webp" alt="">${esc(t(key))}</span><b class="ol">${value ?? '—'}</b><div class="bar"><i style="--w:${w}%"></i></div></div>`;
+}
+
+function attackRow(slot, attack) {
+  const glyph = attack ? `assets/ui/glyph_attack_${attack.shape}.png` : 'assets/ui/glyph_lock.png';
+  return `<div class="case attack"><img src="${glyph}" alt=""><span class="label-yellow ol">${esc(t(slot))}</span>${attack ? `<b class="ol">${esc(attack.name)}${attack.fallback ? ' <small>*</small>' : ''}</b>` : `<span class="muted">${esc(t('soon'))}</span>`}</div>`;
+}
+
+function iconsCase(key, list) {
+  const icons = list.length ? list.map(e => elementIcon(e, '')).join('') : `<span class="none">${esc(t('noneListed'))}</span>`;
+  return `<div class="case"><span class="label-yellow ol">${esc(t(key))}</span><div class="icons-row">${icons}</div></div>`;
+}
+
+function renderInfo(s) {
+  const members = family(s);
+  const stats = s.stats;
+  const zone = s.zone && s.zone !== 'unassigned' ? s.zone[0].toUpperCase() + s.zone.slice(1) : t('unassigned');
+  $('info').innerHTML = `
+    <div class="info-top"><span class="label-yellow ol">${esc(lang === 'fr' ? s.categoryFr : s.category)}</span><span class="big ol">#${esc(s.number)}</span></div>
+    <div class="stats">${statCase('hp', 'stat_hp', stats?.hp)}${statCase('atk', 'stat_atk', stats?.atk)}${statCase('spd', 'stat_spd', stats?.spd)}</div>
+    ${stats?.fallback ? `<span class="hint">${esc(t('provisionalHint'))}</span>` : ''}
+    ${attackRow('basic', s.basic)}${attackRow('special', s.special)}
+    <div class="pair">${iconsCase('weak', s.weaknesses)}${iconsCase('resist', s.resistances)}</div>
+    <div class="case"><p class="desc">${esc(lang === 'fr' ? s.descriptionFr : s.description)}</p></div>
+    ${members.length > 1 ? `<div class="case"><span class="label-yellow ol">${esc(t('evolutions'))}</span><div class="evo">${members.map((m, i) =>
+      `${i ? '<img class="evo-arrow" src="assets/ui/glyph_arrow.png" alt="">' : ''}<button type="button" class="evo-tile" data-number="${esc(m.number)}" ${m.number === s.number ? 'aria-current="true"' : ''}>${tile(m, { number: false })}<span class="ol">${esc(nameOf(m))}</span></button>`).join('')}</div></div>` : ''}
+    <div class="facts">
+      <div class="case"><span class="label-yellow ol">${esc(t('size'))}</span><b class="ol">${esc(s.size || '—')} · ${esc(s.studs ?? '—')} studs</b></div>
+      <div class="case"><span class="label-yellow ol">${esc(t('form'))}</span><b class="ol">${esc(morphName(s.morphology) || '—')}</b></div>
+      <div class="case"><span class="label-yellow ol">${esc(t('zone'))}</span><b class="ol">${esc(s.lent ? t('lent') : zone)}</b></div>
+    </div>`;
+}
+
+function renderNameRow(s) {
+  $('detail-name').textContent = nameOf(s);
+  $('detail-tab').textContent = `Créadex · #${s.number}`;
+  const shinyMark = view.shiny ? '<img class="shiny-star" src="assets/icons/shiny.webp" alt="Shiny">' : '';
+  $('name-row').innerHTML = `<span class="rarity-pill ol" style="--c:${rarityColor(s.rarity)}">${esc(rarityName(s.rarity))}</span>${elementIcon(s.element, 'el-medal')}${shinyMark}${s.inGame ? `<span class="rarity-pill ol" style="--c:var(--good)">${esc(t('inGame'))}</span>` : ''}`;
+}
+
+function modes(s) {
+  return [['3d', 'glyph_camera', t('view3d'), true], ['art', 'glyph_collection', t('art'), !!s.image], ['turn', 'glyph_swap', t('turn'), !!s.turnaround]];
+}
+
+function renderSide(s) {
+  const canShiny = !!(s.shinyTexture || s.portraitShiny);
+  $('side-col').innerHTML = modes(s).map(([mode, glyph, label, ok]) =>
+    `<div class="square-cap"><button type="button" class="square" data-mode="${mode}" aria-pressed="${view.mode === mode}" ${ok ? '' : 'disabled'}><img src="assets/ui/${glyph}.png" alt=""></button><span class="ol">${esc(label)}</span></div>`).join('')
+    + `<div class="square-cap"><button type="button" class="square" data-shiny aria-pressed="${view.shiny}" ${canShiny ? '' : 'disabled'}><img src="assets/ui/sparkle.png" alt=""></button><span class="ol">${esc(t('shiny'))}</span></div>`;
+}
+
+async function getViewer() {
+  if (!viewerPromise) viewerPromise = import('./viewer.js').then(m => m.createViewer);
+  return viewerPromise;
+}
+
+function flat(html, note) {
+  return `<div class="flat">${html}</div>${note ? `<span class="note ol">${esc(note)}</span>` : ''}`;
+}
+
+async function renderStage(s) {
+  const stage = $('stage');
+  $('stage-actions').innerHTML = '';
+  const releaseViewer = () => { viewer?.dispose(); viewer = null; };
+  if (view.mode === 'art' && s.image) { releaseViewer(); stage.innerHTML = flat(`<img src="${esc(s.image)}" alt="${esc(nameOf(s))}">`); return; }
+  if (view.mode === 'turn' && s.turnaround) { releaseViewer(); stage.innerHTML = flat(`<img class="turn" src="${esc(s.turnaround)}" alt="${esc(nameOf(s))} turnaround">`); return; }
+  // 3D: the habitat of its type, the creature on it when it has a model.
+  const fallback = s.model ? null : (artOf(s) ? `<img src="${esc(view.shiny && s.portraitShiny ? s.portraitShiny : artOf(s))}" alt="${esc(nameOf(s))}">` : `<img class="ghost" src="assets/elements/${esc(s.element)}.webp" alt="">`);
+  if (!viewer) { stage.innerHTML = `<div class="loading ol">${esc(t('loading'))}</div>`; }
+  try {
+    const create = await getViewer();
+    if (active !== s || view.mode !== '3d') return;
+    if (!viewer) { stage.innerHTML = ''; viewer = create(stage); }
+    stage.querySelectorAll('.flat, .note, .loading').forEach(n => n.remove());
+    if (fallback) stage.insertAdjacentHTML('beforeend', flat(fallback, s.image ? t('no3d') : t('noArt')));
+    const shown3d = await viewer.show({ model: s.model, shinyTexture: s.shinyTexture, element: s.element, color: elementColor(s.element), habitats, shiny: view.shiny });
+    if (!shown3d || active !== s) return;
+    $('stage-actions').innerHTML = ANIMS.filter(a => shown3d.actions.includes(a)).map(a =>
+      `<button type="button" class="btn ${a === 'Idle' ? 'btn-gold' : 'btn-secondary'}" data-anim="${a}"><span class="ol">${esc(t('anim')[a])}</span></button>`).join('');
+  } catch (error) {
+    console.error(error);
+    releaseViewer();
+    if (active === s) stage.innerHTML = flat(fallback || (artOf(s) ? `<img src="${esc(artOf(s))}" alt="">` : ''), t('no3d'));
+  }
+}
+
+function openDetail(s, { push = true } = {}) {
+  if (!s) return;
+  const changed = active !== s;
+  active = s;
+  if (changed) { view.shiny = false; view.mode = '3d'; }
+  $('detail').style.setProperty('--el', elementColor(s.element));
+  $('detail-back').style.setProperty('--el', elementColor(s.element));
+  renderNameRow(s); renderSide(s); renderInfo(s);
+  if (changed) renderStage(s);
+  const dlg = $('detail');
+  if (dlg.hidden) { dlg.hidden = false; document.body.classList.add('locked'); dlg.scrollTop = 0; $('close').focus({ preventScroll: true }); }
+  if (push && location.hash !== `#${s.id}`) history.replaceState(null, '', `#${s.id}`);
+}
+
+function closeDetail() {
+  if ($('detail').hidden) return;
+  $('detail').hidden = true;
+  document.body.classList.remove('locked');
+  viewer?.dispose(); viewer = null;
+  const last = active; active = null;
+  history.replaceState(null, '', location.pathname + location.search);
+  document.querySelector(`.card[data-number="${last?.number}"]`)?.focus({ preventScroll: false });
+}
+
+function step(delta) {
+  const list = shown.length ? shown : data.species;
+  const i = list.indexOf(active);
+  openDetail(list[(i + delta + list.length) % list.length]);
+}
+
+function bind() {
+  $('search').addEventListener('input', e => { state.query = e.target.value; renderGrid(); });
+  $('sort').addEventListener('click', () => { state.ascending = !state.ascending; renderGrid(); });
+  const reset = () => { state.query = ''; $('search').value = ''; state.element = 'all'; state.rarities.clear(); state.flags.clear(); renderFilters(); renderGrid(); };
+  $('reset').addEventListener('click', reset);
+  $('empty-reset').addEventListener('click', reset);
+  $('type-row').addEventListener('click', e => { const b = e.target.closest('[data-element]'); if (!b) return; state.element = b.dataset.element; renderFilters(); renderGrid(); });
+  $('rarity-row').addEventListener('click', e => { const b = e.target.closest('[data-rarity]'); if (!b) return; const r = b.dataset.rarity; state.rarities.has(r) ? state.rarities.delete(r) : state.rarities.add(r); renderFilters(); renderGrid(); });
+  $('flag-row').addEventListener('click', e => { const b = e.target.closest('[data-flag]'); if (!b) return; const f = b.dataset.flag; state.flags.has(f) ? state.flags.delete(f) : state.flags.add(f); renderFilters(); renderGrid(); });
+  $('grid').addEventListener('click', e => { const c = e.target.closest('.card'); if (c) openDetail(byNumber.get(c.dataset.number)); });
+  document.querySelector('.lang').addEventListener('click', e => {
+    const b = e.target.closest('[data-lang]'); if (!b || b.dataset.lang === lang) return;
+    lang = b.dataset.lang; store.set('creadex-language', lang); applyLanguage(); renderFilters(); renderGrid();
+    if (active) { renderNameRow(active); renderSide(active); renderInfo(active); renderStage(active); }
+  });
+  $('close').addEventListener('click', closeDetail);
+  $('prev').addEventListener('click', () => step(-1));
+  $('next').addEventListener('click', () => step(1));
+  $('info').addEventListener('click', e => { const b = e.target.closest('[data-number]'); if (b) openDetail(byNumber.get(b.dataset.number)); });
+  $('side-col').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b || b.disabled || !active) return;
+    if (b.dataset.mode) { if (view.mode === b.dataset.mode) return; view.mode = b.dataset.mode; renderSide(active); renderStage(active); return; }
+    view.shiny = !view.shiny; renderSide(active); renderNameRow(active);
+    if (viewer && active.model) viewer.setShiny(view.shiny); else if (view.mode === '3d') renderStage(active);
+  });
+  $('stage-actions').addEventListener('click', e => {
+    const b = e.target.closest('[data-anim]'); if (!b) return;
+    viewer?.play(b.dataset.anim);
+    $('stage-actions').querySelectorAll('.btn').forEach(x => { x.classList.toggle('btn-gold', x === b); x.classList.toggle('btn-secondary', x !== b); });
+  });
+  document.addEventListener('keydown', e => {
+    if (!$('detail').hidden) {
+      if (e.key === 'Escape') closeDetail();
+      else if (e.key === 'ArrowLeft') step(-1);
+      else if (e.key === 'ArrowRight') step(1);
+      return;
+    }
+    if (e.key === '/' && document.activeElement?.tagName !== 'INPUT') { e.preventDefault(); $('search').focus(); }
+  });
+  window.addEventListener('hashchange', openFromHash);
+}
+
+function openFromHash() {
+  const id = decodeURIComponent(location.hash.slice(1));
+  const s = id && data.species.find(x => x.id === id || x.number === id);
+  if (s) openDetail(s, { push: false }); else if (!id) closeDetail();
+}
+
+async function start() {
+  bind();
   applyLanguage();
-  try{const response=await fetch('data/species.json');species=await response.json();species.forEach(s=>byNumber.set(s.number,s));initFilters();render();}
-  catch(error){console.error(error);$('creature-grid').innerHTML='<p class="load-error">Impossible de charger les données du Créadex.</p>';}
-  $('search').addEventListener('input',render);$('rarity-filter').addEventListener('change',render);$('morph-filter').addEventListener('change',render);$('family-filter').addEventListener('change',render);
-  document.querySelectorAll('input[name="star"]').forEach(input=>input.addEventListener('change',render));
-  $('type-filters').addEventListener('click',event=>{const button=event.target.closest('[data-type]');if(!button)return;selectedType=button.dataset.type;document.querySelectorAll('.type-chip').forEach(el=>el.classList.toggle('selected',el.dataset.type===selectedType));render()});
-  document.querySelector('.type-chip[data-type="all"]').addEventListener('click',()=>{selectedType='all';document.querySelectorAll('.type-chip').forEach(el=>el.classList.toggle('selected',el.dataset.type==='all'));render()});
-  $('sort-button').addEventListener('click',()=>{ascending=!ascending;$('sort-button').querySelector('span').textContent=ascending?'TRI : N° ↑':'TRI : N° ↓';render()});
-  $('reset-filters').addEventListener('click',resetFilters);$('empty-reset').addEventListener('click',resetFilters);$('dialog-close').addEventListener('click',closeDetail);$('dialog-backdrop').addEventListener('click',closeDetail);$('detail-dialog').addEventListener('close',()=>$('dialog-backdrop').classList.remove('open'));
-  $('families-shortcut').addEventListener('click',()=>{$('family-filter').focus();$('family-filter').scrollIntoView({behavior:'smooth',block:'center'})});$('types-shortcut').addEventListener('click',()=>$('type-filters').scrollIntoView({behavior:'smooth',block:'center'}));
-  document.querySelector('.language-toggle').addEventListener('click',event=>{const button=event.target.closest('[data-lang]');if(button)changeLanguage(button.dataset.lang)});
-  $('mobile-menu').addEventListener('click',()=>$('filter-panel').classList.toggle('mobile-open'));
-  document.addEventListener('keydown',event=>{if(event.key==='/'&&document.activeElement.tagName!=='INPUT'){event.preventDefault();$('search').focus()}if(event.key==='Escape')closeDetail()});
+  try {
+    const [creadex, hab] = await Promise.all([
+      fetch('data/creadex.json').then(r => r.json()),
+      fetch('data/habitats.json').then(r => r.json()).catch(() => ({ habitats: {} })),
+    ]);
+    data = creadex; habitats = hab.habitats || {};
+    data.species.forEach(s => byNumber.set(s.number, s));
+  } catch (error) {
+    console.error(error);
+    $('grid').innerHTML = '<p class="ol">Impossible de charger le Créadex.</p>';
+    return;
+  }
+  applyLanguage(); renderFilters(); renderGrid(); openFromHash();
 }
-function changeLanguage(next){
-  if(!['fr','en'].includes(next)||next===language)return;
-  language=next;localStorage.setItem('creadex-language',language);applyLanguage();initFilters();
-  document.querySelectorAll('.type-chip').forEach(button=>button.classList.toggle('selected',button.dataset.type===selectedType));
-  render();if(activeSpecies)openDetail(byNumber.get(activeSpecies.number));
-}
+
 start();

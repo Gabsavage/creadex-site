@@ -3,6 +3,8 @@ name: Deploy Créadex to GitHub Pages
 on:
   push:
     branches: [main]
+  repository_dispatch:
+    types: [creadex-sync]
   workflow_dispatch:
 
 permissions:
@@ -20,9 +22,33 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      GAME_REPO_TOKEN: ${{ secrets.GAME_REPO_TOKEN }}
     steps:
       - name: Check out the site
         uses: actions/checkout@v6
+      # Optional: with a GAME_REPO_TOKEN secret (read access to creatures-rumble), the data is
+      # regenerated from the game's main branch at every deploy. Without it, the committed
+      # data/creadex.json is published as is (run tools/sync_game.py locally).
+      - name: Check out the game
+        if: env.GAME_REPO_TOKEN != ''
+        uses: actions/checkout@v6
+        with:
+          repository: gabsavage/creatures-rumble
+          token: ${{ env.GAME_REPO_TOKEN }}
+          path: _game
+          sparse-checkout: |
+            docs/creadex
+            src/shared
+            assets/manifest.json
+            art/species
+            art/2d/src
+      - name: Sync the Créadex from the game
+        if: env.GAME_REPO_TOKEN != ''
+        run: |
+          pip install pillow
+          python3 tools/sync_game.py --game _game
+          rm -rf _game
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload the static site
