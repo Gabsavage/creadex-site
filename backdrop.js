@@ -197,6 +197,8 @@ export function createBackdrop(host) {
   }
 
   return {
+    // The light middle color of the current type: the page behind the browser's bars uses it.
+    lightColor() { const look = LOOKS[type] || {}; return rgba(look.light || mix(look.dark || color, WHITE, 0.55)); },
     setType(name, hex) { type = name; color = hexRgb(hex || '#2d3032'); tiles.clear(); wordmark(name); if (!running) draw(); },
     start() { if (running) return; running = true; last = performance.now(); raf = requestAnimationFrame(frame); },
     stop() { running = false; cancelAnimationFrame(raf); },

@@ -16,7 +16,8 @@ body {
   margin: 0; min-height: 100vh; font-family: var(--font); font-weight: 700; color: var(--ink);
   background: #9cc7e6; overflow-x: hidden;
 }
-body.locked { overflow: hidden; }
+body.locked { overflow: hidden; background: transparent; }
+body.locked .page, body.locked .world { visibility: hidden; }
 button, input { font: inherit; color: inherit; }
 button { cursor: pointer; }
 img { display: block; }
@@ -143,7 +144,7 @@ img { display: block; }
 
 /* ── Detail page (Kit.Page on a type background) ────── */
 .detail { position: fixed; inset: 0; z-index: 20; overflow-y: auto; overscroll-behavior: contain; }
-.detail-back { position: fixed; inset: 0; background-color: var(--el, #2d3032); }
+.detail-back { position: fixed; top: 0; left: 0; right: 0; height: 100lvh; min-height: 100%; background-color: var(--el, #2d3032); }
 .detail-back canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; } /* backdrop.js: animated type backdrop */
 .detail-page { position: relative; max-width: 1280px; margin: 0 auto; padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 24px max(16px, env(safe-area-inset-left)); min-height: 100%; display: flex; flex-direction: column; }
 .detail-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
@@ -298,24 +299,30 @@ img { display: block; }
 }
 /* Phone in landscape: the creature on the left, its sheet on the right. */
 @media (max-height: 500px) and (orientation: landscape) {
-  .detail-body { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.1fr); gap: 10px; }
-  .stage-col { order: 0; }
-  .side-col { order: 1; flex-direction: column; flex-wrap: nowrap; }
-  .square-cap { width: 64px; }
-  .square-cap .square, .side-col .square { width: 44px; height: 44px; }
-  .info { order: 2; grid-column: auto; }
-  .stage { aspect-ratio: auto; height: calc(100vh - 200px); min-height: 140px; }
-  .toolbar { position: static; }
-  .stage-col, .side-col { position: sticky; top: 8px; }
-  .head-meta { order: 2; width: auto; margin-left: auto; }
-  .logo { order: 3; margin-left: 0; }
-  .stage-actions { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; max-width: 100%; scrollbar-width: none; }
-  .stage-actions .btn { --h: 36px; flex: none; font-size: 14px; }
-  .creature-name { font-size: 26px; }
-  .detail-head { position: static; margin-bottom: 6px; }
+  /* Phone in landscape: the page does not scroll; the creature stays put on the left and only
+     the sheet on the right scrolls. */
+  .detail { overflow: hidden; }
+  .detail-page { height: 100dvh; min-height: 0; padding-top: max(6px, env(safe-area-inset-top)); padding-bottom: max(6px, env(safe-area-inset-bottom)); }
+  .detail-head { position: static; margin: 0 0 6px; padding: 0; background: none !important; backdrop-filter: none !important; }
   .detail-head .title-tab { height: 38px; }
   .detail-head .square { width: 44px; height: 44px; }
   .detail-head .close { width: 46px; height: 46px; }
+  .detail-body { flex: 1 1 0; min-height: 0; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.1fr); grid-template-rows: minmax(0, 1fr); gap: 10px; align-items: stretch; }
+  .stage-col { order: 0; min-height: 0; gap: 4px; }
+  .stage { flex: 1 1 0; min-height: 80px; height: auto; aspect-ratio: auto; }
+  .stage-actions { flex: none; flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; width: 100%; max-width: 100%; margin: 0; padding: 0 0 2px; scrollbar-width: none; }
+  .stage-actions .btn { --h: 36px; flex: none; font-size: 14px; }
+  .creature-name { font-size: 24px; flex: none; }
+  .name-row { flex: none; }
+  .rarity-pill { height: 28px; font-size: 14px; }
+  .name-row .el-medal { width: 28px; height: 28px; }
+  .side-col { order: 1; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; overflow-y: auto; min-height: 0; scrollbar-width: none; }
+  .square-cap { width: 64px; }
+  .square-cap .square, .side-col .square { width: 44px; height: 44px; }
+  .info { order: 2; grid-column: auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; align-content: start; }
+  .toolbar { position: static; }
+  .head-meta { order: 2; width: auto; margin-left: auto; }
+  .logo { order: 3; margin-left: 0; }
   .page-head .logo { height: 36px; }
 }
 @media (prefers-reduced-motion: reduce) { .card { transition: none; } }

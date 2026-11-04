@@ -1,5 +1,5 @@
 // Créadex site: data/creadex.json is generated from the game repository by tools/sync_game.py.
-import { createBackdrop } from './backdrop.js?v=20261104h';
+import { createBackdrop } from './backdrop.js?v=20261104i';
 const TEXT = {
   fr: {
     search: 'Nom, n°, type…', reset: 'Effacer', filters: 'Filtres', type: 'Type', rarity: 'Rareté', show: 'Voir', all: 'Tous',
@@ -185,7 +185,7 @@ function renderSide(s) {
 }
 
 async function getViewer() {
-  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261104h').then(m => m.createViewer);
+  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261104i').then(m => m.createViewer);
   return viewerPromise;
 }
 
@@ -229,6 +229,7 @@ function openDetail(s, { push = true } = {}) {
   backdrop ??= createBackdrop($('detail-back'));
   backdrop.setType(s.element, elementColor(s.element));
   backdrop.start();
+  paintBrowserChrome(backdrop.lightColor());
   renderNameRow(s); renderSide(s); renderInfo(s);
   if (changed) renderStage(s);
   const dlg = $('detail');
@@ -240,10 +241,20 @@ function openDetail(s, { push = true } = {}) {
   }
 }
 
+// Safari draws the page under its translucent bars: while a sheet is open, the document itself
+// takes the type's color (and the list behind is hidden), so nothing of the list shows there.
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+const defaultTheme = themeMeta?.content;
+function paintBrowserChrome(color) {
+  document.documentElement.style.backgroundColor = color || '';
+  if (themeMeta) themeMeta.content = color || defaultTheme;
+}
+
 function closeDetail({ fromHistory = false } = {}) {
   if ($('detail').hidden) return;
   $('detail').hidden = true;
   backdrop?.stop();
+  paintBrowserChrome(null);
   document.body.classList.remove('locked');
   viewer?.dispose(); viewer = null;
   const last = active; active = null;
@@ -318,8 +329,8 @@ async function start() {
   applyLanguage();
   try {
     const [creadex, hab] = await Promise.all([
-      fetch('data/creadex.json?v=20261104h', { cache: 'no-cache' }).then(r => r.json()),
-      fetch('data/habitats.json?v=20261104h').then(r => r.json()).catch(() => ({ habitats: {} })),
+      fetch('data/creadex.json?v=20261104i', { cache: 'no-cache' }).then(r => r.json()),
+      fetch('data/habitats.json?v=20261104i').then(r => r.json()).catch(() => ({ habitats: {} })),
     ]);
     data = creadex; habitats = hab.habitats || {};
     data.species.forEach(s => byNumber.set(s.number, s));
