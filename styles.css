@@ -143,16 +143,8 @@ img { display: block; }
 
 /* ── Detail page (Kit.Page on a type background) ────── */
 .detail { position: fixed; inset: 0; z-index: 20; overflow-y: auto; overscroll-behavior: contain; }
-.detail-back {
-  position: fixed; inset: 0; background-color: var(--el, #2d3032);
-  background-image: repeating-linear-gradient(-20deg, transparent 0 70px, rgba(255, 255, 255, .2) 70px 104px, transparent 104px 190px, rgba(255, 255, 255, .12) 190px 206px, transparent 206px 330px, rgba(255, 255, 255, .16) 330px 380px, transparent 380px 520px);
-}
-.detail-back::before { /* edge stripes, like the game's safe-area frame */
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, .14) 0 10px, transparent 10px 22px);
-  -webkit-mask: linear-gradient(90deg, #000 0 26px, transparent 26px calc(100% - 26px), #000 calc(100% - 26px));
-  mask: linear-gradient(90deg, #000 0 26px, transparent 26px calc(100% - 26px), #000 calc(100% - 26px));
-}
+.detail-back { position: fixed; inset: 0; background-color: var(--el, #2d3032); }
+.detail-back canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; } /* backdrop.js: animated type backdrop */
 .detail-page { position: relative; max-width: 1280px; margin: 0 auto; padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 24px max(16px, env(safe-area-inset-left)); min-height: 100%; display: flex; flex-direction: column; }
 .detail-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .detail-nav { display: flex; gap: 8px; margin-left: auto; }

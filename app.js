@@ -1,4 +1,5 @@
 // Créadex site: data/creadex.json is generated from the game repository by tools/sync_game.py.
+import { createBackdrop } from './backdrop.js?v=20261104d';
 const TEXT = {
   fr: {
     search: 'Nom, numéro, type…', reset: 'Effacer', type: 'Type', rarity: 'Rareté', show: 'Voir', all: 'Tous',
@@ -47,6 +48,7 @@ let shown = [];
 let active = null;
 const view = { mode: '3d', shiny: false };
 let viewer = null, viewerPromise = null;
+let backdrop = null; // animated type backdrop of the detail page (backdrop.js)
 
 const t = key => TEXT[lang][key];
 const nameOf = s => lang === 'fr' ? s.nameFr : s.name;
@@ -178,7 +180,7 @@ function renderSide(s) {
 }
 
 async function getViewer() {
-  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261104c').then(m => m.createViewer);
+  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261104d').then(m => m.createViewer);
   return viewerPromise;
 }
 
@@ -219,6 +221,9 @@ function openDetail(s, { push = true } = {}) {
   if (changed) { view.shiny = false; view.mode = '3d'; }
   $('detail').style.setProperty('--el', elementColor(s.element));
   $('detail-back').style.setProperty('--el', elementColor(s.element));
+  backdrop ??= createBackdrop($('detail-back'));
+  backdrop.setType(s.element, elementColor(s.element));
+  backdrop.start();
   renderNameRow(s); renderSide(s); renderInfo(s);
   if (changed) renderStage(s);
   const dlg = $('detail');
@@ -229,6 +234,7 @@ function openDetail(s, { push = true } = {}) {
 function closeDetail() {
   if ($('detail').hidden) return;
   $('detail').hidden = true;
+  backdrop?.stop();
   document.body.classList.remove('locked');
   viewer?.dispose(); viewer = null;
   const last = active; active = null;
@@ -295,8 +301,8 @@ async function start() {
   applyLanguage();
   try {
     const [creadex, hab] = await Promise.all([
-      fetch('data/creadex.json?v=20261104c', { cache: 'no-cache' }).then(r => r.json()),
-      fetch('data/habitats.json?v=20261104c').then(r => r.json()).catch(() => ({ habitats: {} })),
+      fetch('data/creadex.json?v=20261104d', { cache: 'no-cache' }).then(r => r.json()),
+      fetch('data/habitats.json?v=20261104d').then(r => r.json()).catch(() => ({ habitats: {} })),
     ]);
     data = creadex; habitats = hab.habitats || {};
     data.species.forEach(s => byNumber.set(s.number, s));

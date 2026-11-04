@@ -30,6 +30,14 @@ Déploiement : chaque push sur `main`. Avec un secret `GAME_REPO_TOKEN` (lecture
 creatures-rumble), le workflow régénère les données depuis le main du jeu à chaque déploiement
 (et sur un `repository_dispatch` `creadex-sync`).
 
+## Fond de la fiche
+
+`backdrop.js` dessine le fond animé de type de la fiche (même boucle que le fond des interfaces du
+jeu : coins foncés, lignes lumineuses, mot stylisé du type qui défile). Les 12 mots viennent du
+lot 36 de Gab (`assets/wordmarks/<Type>.png`, blanc sur transparent, même hauteur de minuscules) ;
+une fois le lot importé dans creatures-rumble (`feature/ui-backdrop`), les prendre de là par la
+synchro. Les réglages sont les constantes en tête de `backdrop.js` (valeurs de départ).
+
 ## Viewer 3D et habitats
 
 `viewer.js` (three.js) affiche le GLB riggé du jeu (animations Idle, Walk, Attack, Special,
