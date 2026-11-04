@@ -41,6 +41,7 @@ function makeLine(seed) {
 }
 const LINES = [makeLine(1234567), makeLine(7654321)];
 
+const MAX_SLOPE = 16 * Math.PI / 180; // steepest line, about the slope on a 16:9 screen
 const WORDMARK_XH = 80; // x-height of assets/wordmarks/<Type>.png, in px
 
 export function createBackdrop(host) {
@@ -152,14 +153,21 @@ export function createBackdrop(host) {
     ctx.fillStyle = rg; ctx.fillRect(0, 0, W, H);
 
     const D = Math.hypot(W, H);
-    const fontPx = Math.round(H * S.textSize), rowH = fontPx * 1.9;
-    const unit = H * 0.012, period = H * 1.7;
-    const lineSpeed = (H * 0.33 / S.textSec) * S.lineMul;
+    // Sizes follow the short side: in portrait the height alone made the words huge.
+    const R = Math.min(H, W);
+    const fontPx = Math.round(R * S.textSize), rowH = fontPx * 1.9;
+    const unit = R * 0.012, period = R * 1.7;
+    const lineSpeed = (R * 0.33 / S.textSec) * S.lineMul;
     const tDark = tile(fontPx, rgba(mix(base, WHITE, 0.45)), rgba(mix(base, BLACK, 0.3)), S.outlineDark);
     const tLight = tile(fontPx, rgba(mix(light, WHITE, 0.35)), rgba(mix(base, BLACK, 0.05)), S.outlineLight);
     const aDark = Math.min(1, S.opacity * 1.6), aLight = Math.min(1, S.opacity * 0.7);
 
-    const aH = H * S.cornerH, cW = W * S.cornerW, theta = Math.atan2(aH, cW);
+    // Corner slope: Gab's settings on a landscape screen; in portrait the corner spans more of the
+    // width and its slope is capped, so the line stays close to the game's angle.
+    const portrait = H > W;
+    const cW = portrait ? W * 0.95 : W * S.cornerW;
+    const theta = Math.min(Math.atan2(H * S.cornerH, cW), MAX_SLOPE);
+    const aH = cW * Math.tan(theta);
     const corners = [
       { mx: cW / 2, my: aH / 2, side: -1, textDir: -1, lineDir: 1, ribbons: LINES[0] },
       { mx: W - cW / 2, my: H - aH / 2, side: 1, textDir: 1, lineDir: -1, ribbons: LINES[1] },

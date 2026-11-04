@@ -125,7 +125,8 @@ export function createViewer(container) {
     mixer = null; actions = {}; current = null; baseMap = shinyMap = material = null;
     scene.fog = new THREE.Fog(mix(color, '#ffffff', 0.25), 30, 80);
     await setHabitat(element, habitats, color);
-    if (!model) { frame(4); return { actions: [] }; }
+    frame(4); // until the model is in, never leave the camera inside the stage
+    if (!model) return { actions: [] };
     const gltf = await loadGltf(model);
     if (mine !== token) return null;
     creature = cloneSkinned(gltf.scene);
