@@ -38,7 +38,7 @@ const store = {
   set(key, value) { try { localStorage.setItem(key, value); } catch { /* private mode */ } },
 };
 
-let lang = store.get('creadex-language') === 'en' ? 'en' : 'fr';
+let lang = store.get('creadex-language') === 'fr' ? 'fr' : 'en';
 let data = { elements: {}, rarities: {}, species: [] };
 let habitats = {};
 const state = { query: '', element: 'all', rarities: new Set(), flags: new Set(), ascending: true };
@@ -178,7 +178,7 @@ function renderSide(s) {
 }
 
 async function getViewer() {
-  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261104b').then(m => m.createViewer);
+  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261104c').then(m => m.createViewer);
   return viewerPromise;
 }
 
@@ -295,8 +295,8 @@ async function start() {
   applyLanguage();
   try {
     const [creadex, hab] = await Promise.all([
-      fetch('data/creadex.json?v=20261104b', { cache: 'no-cache' }).then(r => r.json()),
-      fetch('data/habitats.json?v=20261104b').then(r => r.json()).catch(() => ({ habitats: {} })),
+      fetch('data/creadex.json?v=20261104c', { cache: 'no-cache' }).then(r => r.json()),
+      fetch('data/habitats.json?v=20261104c').then(r => r.json()).catch(() => ({ habitats: {} })),
     ]);
     data = creadex; habitats = hab.habitats || {};
     data.species.forEach(s => byNumber.set(s.number, s));
