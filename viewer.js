@@ -135,6 +135,8 @@ export function createViewer(container) {
       if (o.isMesh) {
         o.castShadow = true;
         o.material = o.material.clone();
+        o.material.userData.baseMap = o.material.map; // each piece keeps its own (jellop: body, bell, heart)
+        if (o.material.transparent) o.material.depthWrite = false; // jellop's bell (alpha blend)
         material = material || o.material;
       }
     });
@@ -181,9 +183,13 @@ export function createViewer(container) {
   }
 
   function setShiny(on) {
-    if (!material) return;
-    const map = on && shinyMap ? shinyMap : baseMap;
-    creature?.traverse(o => { if (o.isMesh) { o.material.map = map; o.material.needsUpdate = true; } });
+    // A shiny texture replaces the body's map only; without one the model keeps its own maps.
+    if (!material || !shinyMap) return;
+    creature?.traverse(o => {
+      if (!o.isMesh || o.material.userData.baseMap !== baseMap) return;
+      o.material.map = on ? shinyMap : baseMap;
+      o.material.needsUpdate = true;
+    });
   }
 
   function dispose() {

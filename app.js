@@ -1,5 +1,5 @@
 // Créadex site: data/creadex.json is generated from the game repository by tools/sync_game.py.
-import { createBackdrop } from './backdrop.js?v=20261106a';
+import { createBackdrop } from './backdrop.js?v=20261106b';
 const TEXT = {
   fr: {
     search: 'Nom, n°, type…', reset: 'Effacer', filters: 'Filtres', type: 'Type', rarity: 'Rareté', show: 'Voir', all: 'Tous',
@@ -178,14 +178,14 @@ function modes(s) {
 }
 
 function renderSide(s) {
-  const canShiny = !!(s.shinyTexture || s.portraitShiny);
+  const canShiny = s.model ? !!s.shinyTexture : !!s.portraitShiny; // a 3D model needs its own shiny texture
   $('side-col').innerHTML = modes(s).map(([mode, glyph, label, ok]) =>
     `<div class="square-cap"><button type="button" class="square" data-mode="${mode}" aria-pressed="${view.mode === mode}" ${ok ? '' : 'disabled'}><img src="assets/ui/${glyph}.png" alt=""></button><span class="ol">${esc(label)}</span></div>`).join('')
     + `<div class="square-cap"><button type="button" class="square" data-shiny aria-pressed="${view.shiny}" ${canShiny ? '' : 'disabled'}><img src="assets/ui/sparkle.png" alt=""></button><span class="ol">${esc(t('shiny'))}</span></div>`;
 }
 
 async function getViewer() {
-  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261106a').then(m => m.createViewer);
+  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261106b').then(m => m.createViewer);
   return viewerPromise;
 }
 
@@ -329,8 +329,8 @@ async function start() {
   applyLanguage();
   try {
     const [creadex, hab] = await Promise.all([
-      fetch('data/creadex.json?v=20261106a', { cache: 'no-cache' }).then(r => r.json()),
-      fetch('data/habitats.json?v=20261106a').then(r => r.json()).catch(() => ({ habitats: {} })),
+      fetch('data/creadex.json?v=20261106b', { cache: 'no-cache' }).then(r => r.json()),
+      fetch('data/habitats.json?v=20261106b').then(r => r.json()).catch(() => ({ habitats: {} })),
     ]);
     data = creadex; habitats = hab.habitats || {};
     data.species.forEach(s => byNumber.set(s.number, s));

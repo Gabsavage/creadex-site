@@ -166,7 +166,7 @@
    "portrait": "assets/portraits/sprawn.webp",
    "portraitShiny": "assets/portraits/sprawn_shiny.webp",
    "model": "assets/models/sprawn.glb",
-   "shinyTexture": "assets/models/sprawn_shiny.png"
+   "shinyTexture": null
   },
   {
    "number": "002",
@@ -221,8 +221,8 @@
    "turnaround": "assets/species/elkanopy_turnaround.webp",
    "portrait": "assets/portraits/elkanopy.webp",
    "portraitShiny": "assets/portraits/elkanopy_shiny.webp",
-   "model": "assets/models/elkanopy.glb",
-   "shinyTexture": "assets/models/elkanopy_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "003",
@@ -277,8 +277,8 @@
    "turnaround": "assets/species/majestree_turnaround.webp",
    "portrait": "assets/portraits/majestree.webp",
    "portraitShiny": "assets/portraits/majestree_shiny.webp",
-   "model": "assets/models/majestree.glb",
-   "shinyTexture": "assets/models/majestree_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "004",
@@ -332,8 +332,8 @@
    "turnaround": "assets/species/embaa_turnaround.webp",
    "portrait": "assets/portraits/embaa.webp",
    "portraitShiny": "assets/portraits/embaa_shiny.webp",
-   "model": "assets/models/embaa.glb",
-   "shinyTexture": "assets/models/embaa_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "005",
@@ -388,7 +388,7 @@
    "portrait": "assets/portraits/ramblaze.webp",
    "portraitShiny": "assets/portraits/ramblaze_shiny.webp",
    "model": "assets/models/ramblaze.glb",
-   "shinyTexture": "assets/models/ramblaze_shiny.png"
+   "shinyTexture": null
   },
   {
    "number": "006",
@@ -442,8 +442,8 @@
    "turnaround": "assets/species/eruptihorn_turnaround.webp",
    "portrait": "assets/portraits/eruptihorn.webp",
    "portraitShiny": "assets/portraits/eruptihorn_shiny.webp",
-   "model": "assets/models/eruptihorn.glb",
-   "shinyTexture": "assets/models/eruptihorn_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "007",
@@ -498,8 +498,8 @@
    "turnaround": "assets/species/narwee_turnaround.webp",
    "portrait": "assets/portraits/narwee.webp",
    "portraitShiny": "assets/portraits/narwee_shiny.webp",
-   "model": "assets/models/narwee.glb",
-   "shinyTexture": "assets/models/narwee_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "008",
@@ -554,8 +554,8 @@
    "turnaround": "assets/species/swirlwhal_turnaround.webp",
    "portrait": "assets/portraits/swirlwhal.webp",
    "portraitShiny": "assets/portraits/swirlwhal_shiny.webp",
-   "model": "assets/models/swirlwhal.glb",
-   "shinyTexture": "assets/models/swirlwhal_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "009",
@@ -610,8 +610,8 @@
    "turnaround": "assets/species/tritonarch_turnaround.webp",
    "portrait": "assets/portraits/tritonarch.webp",
    "portraitShiny": "assets/portraits/tritonarch_shiny.webp",
-   "model": "assets/models/tritonarch.glb",
-   "shinyTexture": "assets/models/tritonarch_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "010",
@@ -662,8 +662,8 @@
    "turnaround": "assets/species/pouchip_turnaround.webp",
    "portrait": "assets/portraits/pouchip.webp",
    "portraitShiny": "assets/portraits/pouchip_shiny.webp",
-   "model": "assets/models/pouchip.glb",
-   "shinyTexture": "assets/models/pouchip_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "011",
@@ -714,8 +714,8 @@
    "turnaround": "assets/species/hamstuff_turnaround.webp",
    "portrait": "assets/portraits/hamstuff.webp",
    "portraitShiny": "assets/portraits/hamstuff_shiny.webp",
-   "model": "assets/models/hamstuff.glb",
-   "shinyTexture": "assets/models/hamstuff_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "012",
@@ -766,8 +766,8 @@
    "turnaround": "assets/species/silomster_turnaround.webp",
    "portrait": "assets/portraits/silomster.webp",
    "portraitShiny": "assets/portraits/silomster_shiny.webp",
-   "model": "assets/models/silomster.glb",
-   "shinyTexture": "assets/models/silomster_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "013",
@@ -819,8 +819,8 @@
    "turnaround": "assets/species/chirpuff_turnaround.webp",
    "portrait": "assets/portraits/chirpuff.webp",
    "portraitShiny": "assets/portraits/chirpuff_shiny.webp",
-   "model": "assets/models/chirpuff.glb",
-   "shinyTexture": "assets/models/chirpuff_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "014",
@@ -872,8 +872,8 @@
    "turnaround": "assets/species/galark_turnaround.webp",
    "portrait": "assets/portraits/galark.webp",
    "portraitShiny": "assets/portraits/galark_shiny.webp",
-   "model": "assets/models/galark.glb",
-   "shinyTexture": "assets/models/galark_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "015",
@@ -925,8 +925,8 @@
    "turnaround": "assets/species/hurricrest_turnaround.webp",
    "portrait": "assets/portraits/hurricrest.webp",
    "portraitShiny": "assets/portraits/hurricrest_shiny.webp",
-   "model": "assets/models/hurricrest.glb",
-   "shinyTexture": "assets/models/hurricrest_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "016",
@@ -981,8 +981,8 @@
    "turnaround": "assets/species/petutu_turnaround.webp",
    "portrait": "assets/portraits/petutu.webp",
    "portraitShiny": "assets/portraits/petutu_shiny.webp",
-   "model": "assets/models/petutu.glb",
-   "shinyTexture": "assets/models/petutu_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "017",
@@ -1033,8 +1033,8 @@
    "turnaround": "assets/species/knotsy_turnaround.webp",
    "portrait": "assets/portraits/knotsy.webp",
    "portraitShiny": "assets/portraits/knotsy_shiny.webp",
-   "model": "assets/models/knotsy.glb",
-   "shinyTexture": "assets/models/knotsy_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "018",
@@ -1086,8 +1086,8 @@
    "turnaround": "assets/species/wigglewatt_turnaround.webp",
    "portrait": "assets/portraits/wigglewatt.webp",
    "portraitShiny": "assets/portraits/wigglewatt_shiny.webp",
-   "model": "assets/models/wigglewatt.glb",
-   "shinyTexture": "assets/models/wigglewatt_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "019",
@@ -1139,8 +1139,8 @@
    "turnaround": "assets/species/coilectric_turnaround.webp",
    "portrait": "assets/portraits/coilectric.webp",
    "portraitShiny": "assets/portraits/coilectric_shiny.webp",
-   "model": "assets/models/coilectric.glb",
-   "shinyTexture": "assets/models/coilectric_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "020",
@@ -1192,8 +1192,8 @@
    "turnaround": "assets/species/stormwyrm_turnaround.webp",
    "portrait": "assets/portraits/stormwyrm.webp",
    "portraitShiny": "assets/portraits/stormwyrm_shiny.webp",
-   "model": "assets/models/stormwyrm.glb",
-   "shinyTexture": "assets/models/stormwyrm_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "021",
@@ -1246,8 +1246,8 @@
    "turnaround": "assets/species/pebbit_turnaround.webp",
    "portrait": "assets/portraits/pebbit.webp",
    "portraitShiny": "assets/portraits/pebbit_shiny.webp",
-   "model": "assets/models/pebbit.glb",
-   "shinyTexture": "assets/models/pebbit_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "022",
@@ -1300,8 +1300,8 @@
    "turnaround": "assets/species/rumblock_turnaround.webp",
    "portrait": "assets/portraits/rumblock.webp",
    "portraitShiny": "assets/portraits/rumblock_shiny.webp",
-   "model": "assets/models/rumblock.glb",
-   "shinyTexture": "assets/models/rumblock_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "023",
@@ -1354,8 +1354,8 @@
    "turnaround": "assets/species/montitan_turnaround.webp",
    "portrait": "assets/portraits/montitan.webp",
    "portraitShiny": "assets/portraits/montitan_shiny.webp",
-   "model": "assets/models/montitan.glb",
-   "shinyTexture": "assets/models/montitan_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "024",
@@ -1406,8 +1406,8 @@
    "turnaround": "assets/species/yipup_turnaround.webp",
    "portrait": "assets/portraits/yipup.webp",
    "portraitShiny": "assets/portraits/yipup_shiny.webp",
-   "model": "assets/models/yipup.glb",
-   "shinyTexture": "assets/models/yipup_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "025",
@@ -1458,8 +1458,8 @@
    "turnaround": "assets/species/barkeeper_turnaround.webp",
    "portrait": "assets/portraits/barkeeper.webp",
    "portraitShiny": "assets/portraits/barkeeper_shiny.webp",
-   "model": "assets/models/barkeeper.glb",
-   "shinyTexture": "assets/models/barkeeper_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "026",
@@ -1514,8 +1514,8 @@
    "turnaround": "assets/species/funguy_turnaround.webp",
    "portrait": "assets/portraits/funguy.webp",
    "portraitShiny": "assets/portraits/funguy_shiny.webp",
-   "model": "assets/models/funguy.glb",
-   "shinyTexture": "assets/models/funguy_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "027",
@@ -1570,8 +1570,8 @@
    "turnaround": "assets/species/mushroof_turnaround.webp",
    "portrait": "assets/portraits/mushroof.webp",
    "portraitShiny": "assets/portraits/mushroof_shiny.webp",
-   "model": "assets/models/mushroof.glb",
-   "shinyTexture": "assets/models/mushroof_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "028",
@@ -1626,8 +1626,8 @@
    "turnaround": "assets/species/bubblub_turnaround.webp",
    "portrait": "assets/portraits/bubblub.webp",
    "portraitShiny": "assets/portraits/bubblub_shiny.webp",
-   "model": "assets/models/bubblub.glb",
-   "shinyTexture": "assets/models/bubblub_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "029",
@@ -1681,8 +1681,8 @@
    "turnaround": "assets/species/kindlet_turnaround.webp",
    "portrait": "assets/portraits/kindlet.webp",
    "portraitShiny": "assets/portraits/kindlet_shiny.webp",
-   "model": "assets/models/kindlet.glb",
-   "shinyTexture": "assets/models/kindlet_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "030",
@@ -1733,8 +1733,8 @@
    "turnaround": "assets/species/purrkit_turnaround.webp",
    "portrait": "assets/portraits/purrkit.webp",
    "portraitShiny": "assets/portraits/purrkit_shiny.webp",
-   "model": "assets/models/purrkit.glb",
-   "shinyTexture": "assets/models/purrkit_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "031",
@@ -1785,8 +1785,8 @@
    "turnaround": "assets/species/capurr_turnaround.webp",
    "portrait": "assets/portraits/capurr.webp",
    "portraitShiny": "assets/portraits/capurr_shiny.webp",
-   "model": "assets/models/capurr.glb",
-   "shinyTexture": "assets/models/capurr_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "032",
@@ -1837,8 +1837,8 @@
    "turnaround": "assets/species/gargatto_turnaround.webp",
    "portrait": "assets/portraits/gargatto.webp",
    "portraitShiny": "assets/portraits/gargatto_shiny.webp",
-   "model": "assets/models/gargatto.glb",
-   "shinyTexture": "assets/models/gargatto_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "033",
@@ -2809,7 +2809,7 @@
    "portrait": "assets/portraits/jellop.webp",
    "portraitShiny": "assets/portraits/jellop_shiny.webp",
    "model": "assets/models/jellop.glb",
-   "shinyTexture": "assets/models/jellop_shiny.png"
+   "shinyTexture": null
   },
   {
    "number": "051",
@@ -2864,8 +2864,8 @@
    "turnaround": "assets/species/veilusa_turnaround.webp",
    "portrait": "assets/portraits/veilusa.webp",
    "portraitShiny": "assets/portraits/veilusa_shiny.webp",
-   "model": "assets/models/veilusa.glb",
-   "shinyTexture": "assets/models/veilusa_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "052",
@@ -2920,8 +2920,8 @@
    "turnaround": "assets/species/abyssbrella_turnaround.webp",
    "portrait": "assets/portraits/abyssbrella.webp",
    "portraitShiny": "assets/portraits/abyssbrella_shiny.webp",
-   "model": "assets/models/abyssbrella.glb",
-   "shinyTexture": "assets/models/abyssbrella_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "053",
@@ -4644,8 +4644,8 @@
    "turnaround": "assets/species/shadlet_turnaround.webp",
    "portrait": "assets/portraits/shadlet.webp",
    "portraitShiny": "assets/portraits/shadlet_shiny.webp",
-   "model": "assets/models/shadlet.glb",
-   "shinyTexture": "assets/models/shadlet_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "085",
@@ -4696,8 +4696,8 @@
    "turnaround": "assets/species/mimishade_turnaround.webp",
    "portrait": "assets/portraits/mimishade.webp",
    "portraitShiny": "assets/portraits/mimishade_shiny.webp",
-   "model": "assets/models/mimishade.glb",
-   "shinyTexture": "assets/models/mimishade_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "086",
@@ -4748,8 +4748,8 @@
    "turnaround": "assets/species/eclipsor_turnaround.webp",
    "portrait": "assets/portraits/eclipsor.webp",
    "portraitShiny": "assets/portraits/eclipsor_shiny.webp",
-   "model": "assets/models/eclipsor.glb",
-   "shinyTexture": "assets/models/eclipsor_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "087",
@@ -5386,8 +5386,8 @@
    "turnaround": "assets/species/whalet_turnaround.webp",
    "portrait": "assets/portraits/whalet.webp",
    "portraitShiny": "assets/portraits/whalet_shiny.webp",
-   "model": "assets/models/whalet.glb",
-   "shinyTexture": "assets/models/whalet_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "099",
@@ -5442,8 +5442,8 @@
    "turnaround": "assets/species/leviathug_turnaround.webp",
    "portrait": "assets/portraits/leviathug.webp",
    "portraitShiny": "assets/portraits/leviathug_shiny.webp",
-   "model": "assets/models/leviathug.glb",
-   "shinyTexture": "assets/models/leviathug_shiny.png"
+   "model": null,
+   "shinyTexture": null
   },
   {
    "number": "100",
