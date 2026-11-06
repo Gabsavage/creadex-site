@@ -1,5 +1,5 @@
 // Créadex site: data/creadex.json is generated from the game repository by tools/sync_game.py.
-import { createBackdrop } from './backdrop.js?v=20261104i';
+import { createBackdrop } from './backdrop.js?v=20261106a';
 const TEXT = {
   fr: {
     search: 'Nom, n°, type…', reset: 'Effacer', filters: 'Filtres', type: 'Type', rarity: 'Rareté', show: 'Voir', all: 'Tous',
@@ -185,7 +185,7 @@ function renderSide(s) {
 }
 
 async function getViewer() {
-  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261104i').then(m => m.createViewer);
+  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261106a').then(m => m.createViewer);
   return viewerPromise;
 }
 
@@ -329,8 +329,8 @@ async function start() {
   applyLanguage();
   try {
     const [creadex, hab] = await Promise.all([
-      fetch('data/creadex.json?v=20261104i', { cache: 'no-cache' }).then(r => r.json()),
-      fetch('data/habitats.json?v=20261104i').then(r => r.json()).catch(() => ({ habitats: {} })),
+      fetch('data/creadex.json?v=20261106a', { cache: 'no-cache' }).then(r => r.json()),
+      fetch('data/habitats.json?v=20261106a').then(r => r.json()).catch(() => ({ habitats: {} })),
     ]);
     data = creadex; habitats = hab.habitats || {};
     data.species.forEach(s => byNumber.set(s.number, s));

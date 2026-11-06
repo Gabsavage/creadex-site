@@ -160,13 +160,13 @@
    "descriptionFr": "Un faon tout léger dont le dos est couvert de mousse tiède. La pousse entre ses oreilles se tourne toujours vers le soleil.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/sprawn.webp",
+   "turnaround": "assets/species/sprawn_turnaround.webp",
+   "portrait": "assets/portraits/sprawn.webp",
+   "portraitShiny": "assets/portraits/sprawn_shiny.webp",
+   "model": "assets/models/sprawn.glb",
+   "shinyTexture": "assets/models/sprawn_shiny.png"
   },
   {
    "number": "002",
@@ -216,13 +216,13 @@
    "descriptionFr": "Ses bois se sont couverts de feuilles qui changent de couleur avec ses émotions. Il guide les promeneurs perdus jusqu'à l'orée.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/elkanopy.webp",
+   "turnaround": "assets/species/elkanopy_turnaround.webp",
+   "portrait": "assets/portraits/elkanopy.webp",
+   "portraitShiny": "assets/portraits/elkanopy_shiny.webp",
+   "model": "assets/models/elkanopy.glb",
+   "shinyTexture": "assets/models/elkanopy_shiny.png"
   },
   {
    "number": "003",
@@ -272,13 +272,13 @@
    "descriptionFr": "Ses bois sont devenus un chêne entier où nichent des oiseaux. Quand il frappe le sol de son sabot, des racines jaillissent sur des mètres.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/majestree.webp",
+   "turnaround": "assets/species/majestree_turnaround.webp",
+   "portrait": "assets/portraits/majestree.webp",
+   "portraitShiny": "assets/portraits/majestree_shiny.webp",
+   "model": "assets/models/majestree.glb",
+   "shinyTexture": "assets/models/majestree_shiny.png"
   },
   {
    "number": "004",
@@ -382,13 +382,13 @@
    "descriptionFr": "Ses cornes enroulées crachent des volutes de flammes à chaque charge. Têtu, il ne recule jamais, même face à plus gros.",
    "zone": "unassigned",
    "artStatus": "Turnaround",
-   "inGame": false,
+   "inGame": true,
    "image": "assets/species/ramblaze.webp",
    "turnaround": "assets/species/ramblaze_turnaround.webp",
    "portrait": "assets/portraits/ramblaze.webp",
    "portraitShiny": "assets/portraits/ramblaze_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/ramblaze.glb",
+   "shinyTexture": "assets/models/ramblaze_shiny.png"
   },
   {
    "number": "006",
@@ -437,13 +437,13 @@
    "descriptionFr": "Sa laine s'est figée en roche volcanique traversée de rivières de lave. Ses pas laissent des empreintes fumantes pendant des jours.",
    "zone": "unassigned",
    "artStatus": "Turnaround",
-   "inGame": false,
+   "inGame": true,
    "image": "assets/species/eruptihorn.webp",
    "turnaround": "assets/species/eruptihorn_turnaround.webp",
    "portrait": "assets/portraits/eruptihorn.webp",
    "portraitShiny": "assets/portraits/eruptihorn_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/eruptihorn.glb",
+   "shinyTexture": "assets/models/eruptihorn_shiny.png"
   },
   {
    "number": "007",
@@ -493,13 +493,13 @@
    "descriptionFr": "Un bébé narval qui sautille sur la terre ferme. Sa petite corne en goutte d'eau lance des jets pour arroser ses amis.",
    "zone": "unassigned",
    "artStatus": "Turnaround",
-   "inGame": false,
+   "inGame": true,
    "image": "assets/species/narwee.webp",
    "turnaround": "assets/species/narwee_turnaround.webp",
    "portrait": "assets/portraits/narwee.webp",
    "portraitShiny": "assets/portraits/narwee_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/narwee.glb",
+   "shinyTexture": "assets/models/narwee_shiny.png"
   },
   {
    "number": "008",
@@ -549,13 +549,13 @@
    "descriptionFr": "Il s'est dressé sur ses nageoires arrière. Sa corne en spirale fait tourbillonner l'eau comme une perceuse.",
    "zone": "unassigned",
    "artStatus": "Turnaround",
-   "inGame": false,
+   "inGame": true,
    "image": "assets/species/swirlwhal.webp",
    "turnaround": "assets/species/swirlwhal_turnaround.webp",
    "portrait": "assets/portraits/swirlwhal.webp",
    "portraitShiny": "assets/portraits/swirlwhal_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/swirlwhal.glb",
+   "shinyTexture": "assets/models/swirlwhal_shiny.png"
   },
   {
    "number": "009",
@@ -605,13 +605,13 @@
    "descriptionFr": "Drapé d'une cape de vagues, il commande les marées. On dit que sa corne-trident a percé le fond de l'océan.",
    "zone": "unassigned",
    "artStatus": "Turnaround",
-   "inGame": false,
+   "inGame": true,
    "image": "assets/species/tritonarch.webp",
    "turnaround": "assets/species/tritonarch_turnaround.webp",
    "portrait": "assets/portraits/tritonarch.webp",
    "portraitShiny": "assets/portraits/tritonarch_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/tritonarch.glb",
+   "shinyTexture": "assets/models/tritonarch_shiny.png"
   },
   {
    "number": "010",
@@ -657,13 +657,13 @@
    "descriptionFr": "Il stocke dans ses joues tout ce qui brille, puis l'oublie aussitôt. On en trouve partout où il y a des graines.",
    "zone": "prairie",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/pouchip.webp",
+   "turnaround": "assets/species/pouchip_turnaround.webp",
+   "portrait": "assets/portraits/pouchip.webp",
+   "portraitShiny": "assets/portraits/pouchip_shiny.webp",
+   "model": "assets/models/pouchip.glb",
+   "shinyTexture": "assets/models/pouchip_shiny.png"
   },
   {
    "number": "011",
@@ -709,13 +709,13 @@
    "descriptionFr": "Ses joues peuvent contenir une citrouille entière. Il les vide d'un coup pour assommer les curieux.",
    "zone": "prairie",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/hamstuff.webp",
+   "turnaround": "assets/species/hamstuff_turnaround.webp",
+   "portrait": "assets/portraits/hamstuff.webp",
+   "portraitShiny": "assets/portraits/hamstuff_shiny.webp",
+   "model": "assets/models/hamstuff.glb",
+   "shinyTexture": "assets/models/hamstuff_shiny.png"
   },
   {
    "number": "012",
@@ -761,13 +761,13 @@
    "descriptionFr": "Un hamster colossal qui porte son grenier sur le dos. Personne ne sait combien de trésors y dorment depuis des siècles.",
    "zone": "prairie",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/silomster.webp",
+   "turnaround": "assets/species/silomster_turnaround.webp",
+   "portrait": "assets/portraits/silomster.webp",
+   "portraitShiny": "assets/portraits/silomster_shiny.webp",
+   "model": "assets/models/silomster.glb",
+   "shinyTexture": "assets/models/silomster_shiny.png"
   },
   {
    "number": "013",
@@ -814,13 +814,13 @@
    "descriptionFr": "Une boule de plumes qui ne sait pas encore voler mais se jette dans chaque courant d'air en criant de joie.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/chirpuff.webp",
+   "turnaround": "assets/species/chirpuff_turnaround.webp",
+   "portrait": "assets/portraits/chirpuff.webp",
+   "portraitShiny": "assets/portraits/chirpuff_shiny.webp",
+   "model": "assets/models/chirpuff.glb",
+   "shinyTexture": "assets/models/chirpuff_shiny.png"
   },
   {
    "number": "014",
@@ -867,13 +867,13 @@
    "descriptionFr": "Il plane des heures sans un battement d'ailes. Son chant annonce le changement de temps.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/galark.webp",
+   "turnaround": "assets/species/galark_turnaround.webp",
+   "portrait": "assets/portraits/galark.webp",
+   "portraitShiny": "assets/portraits/galark_shiny.webp",
+   "model": "assets/models/galark.glb",
+   "shinyTexture": "assets/models/galark_shiny.png"
   },
   {
    "number": "015",
@@ -920,13 +920,13 @@
    "descriptionFr": "Chaque battement de ses ailes soulève une bourrasque capable de coucher un champ de blé. Il veille sur les sommets.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/hurricrest.webp",
+   "turnaround": "assets/species/hurricrest_turnaround.webp",
+   "portrait": "assets/portraits/hurricrest.webp",
+   "portraitShiny": "assets/portraits/hurricrest_shiny.webp",
+   "model": "assets/models/hurricrest.glb",
+   "shinyTexture": "assets/models/hurricrest_shiny.png"
   },
   {
    "number": "016",
@@ -976,13 +976,13 @@
    "descriptionFr": "Un bourgeon qui danse au moindre souffle. S'il ferme ses pétales, c'est qu'il va pleuvoir.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/petutu.webp",
+   "turnaround": "assets/species/petutu_turnaround.webp",
+   "portrait": "assets/portraits/petutu.webp",
+   "portraitShiny": "assets/portraits/petutu_shiny.webp",
+   "model": "assets/models/petutu.glb",
+   "shinyTexture": "assets/models/petutu_shiny.png"
   },
   {
    "number": "017",
@@ -1028,13 +1028,13 @@
    "descriptionFr": "Une pelote de laine vivante qui roule partout. Si on tire sur son fil, elle se défait… puis se refait en boudant.",
    "zone": "prairie",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/knotsy.webp",
+   "turnaround": "assets/species/knotsy_turnaround.webp",
+   "portrait": "assets/portraits/knotsy.webp",
+   "portraitShiny": "assets/portraits/knotsy_shiny.webp",
+   "model": "assets/models/knotsy.glb",
+   "shinyTexture": "assets/models/knotsy_shiny.png"
   },
   {
    "number": "018",
@@ -1081,13 +1081,13 @@
    "descriptionFr": "Un petit ver qui ressemble à un câble dénudé. Il adore se lover autour des lampadaires pour se recharger.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/wigglewatt.webp",
+   "turnaround": "assets/species/wigglewatt_turnaround.webp",
+   "portrait": "assets/portraits/wigglewatt.webp",
+   "portraitShiny": "assets/portraits/wigglewatt_shiny.webp",
+   "model": "assets/models/wigglewatt.glb",
+   "shinyTexture": "assets/models/wigglewatt_shiny.png"
   },
   {
    "number": "019",
@@ -1134,13 +1134,13 @@
    "descriptionFr": "Des anneaux lumineux parcourent son corps quand il s'énerve. Il file si vite qu'on ne voit qu'un trait de lumière.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/coilectric.webp",
+   "turnaround": "assets/species/coilectric_turnaround.webp",
+   "portrait": "assets/portraits/coilectric.webp",
+   "portraitShiny": "assets/portraits/coilectric_shiny.webp",
+   "model": "assets/models/coilectric.glb",
+   "shinyTexture": "assets/models/coilectric_shiny.png"
   },
   {
    "number": "020",
@@ -1187,13 +1187,13 @@
    "descriptionFr": "Un serpent-dragon qui ondule dans les nuages d'orage. Chaque éclair dans le ciel serait l'une de ses écailles qui tombe.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/stormwyrm.webp",
+   "turnaround": "assets/species/stormwyrm_turnaround.webp",
+   "portrait": "assets/portraits/stormwyrm.webp",
+   "portraitShiny": "assets/portraits/stormwyrm_shiny.webp",
+   "model": "assets/models/stormwyrm.glb",
+   "shinyTexture": "assets/models/stormwyrm_shiny.png"
   },
   {
    "number": "021",
@@ -1241,13 +1241,13 @@
    "descriptionFr": "Un galet poli avec deux petits pieds. Il se cache parmi les cailloux de rivière et adore qu'on le fasse ricocher.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/pebbit.webp",
+   "turnaround": "assets/species/pebbit_turnaround.webp",
+   "portrait": "assets/portraits/pebbit.webp",
+   "portraitShiny": "assets/portraits/pebbit_shiny.webp",
+   "model": "assets/models/pebbit.glb",
+   "shinyTexture": "assets/models/pebbit_shiny.png"
   },
   {
    "number": "022",
@@ -1295,13 +1295,13 @@
    "descriptionFr": "Il a grossi en avalant des cailloux pendant des années. Sa tête est assez dure pour fendre un tronc.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/rumblock.webp",
+   "turnaround": "assets/species/rumblock_turnaround.webp",
+   "portrait": "assets/portraits/rumblock.webp",
+   "portraitShiny": "assets/portraits/rumblock_shiny.webp",
+   "model": "assets/models/rumblock.glb",
+   "shinyTexture": "assets/models/rumblock_shiny.png"
   },
   {
    "number": "023",
@@ -1349,13 +1349,13 @@
    "descriptionFr": "Une montagne qui marche, couronnée de deux cornes de granit. Des villages entiers se sont parfois installés sur son dos sans le savoir.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/montitan.webp",
+   "turnaround": "assets/species/montitan_turnaround.webp",
+   "portrait": "assets/portraits/montitan.webp",
+   "portraitShiny": "assets/portraits/montitan_shiny.webp",
+   "model": "assets/models/montitan.glb",
+   "shinyTexture": "assets/models/montitan_shiny.png"
   },
   {
    "number": "024",
@@ -1401,13 +1401,13 @@
    "descriptionFr": "Un chiot aux oreilles trop grandes qui aboie après sa propre ombre. Fidèle dès la première caresse.",
    "zone": "prairie",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/yipup.webp",
+   "turnaround": "assets/species/yipup_turnaround.webp",
+   "portrait": "assets/portraits/yipup.webp",
+   "portraitShiny": "assets/portraits/yipup_shiny.webp",
+   "model": "assets/models/yipup.glb",
+   "shinyTexture": "assets/models/yipup_shiny.png"
   },
   {
    "number": "025",
@@ -1453,13 +1453,13 @@
    "descriptionFr": "Un chien de berger immense et doux. Il ramène les petites créatures égarées en les poussant du museau.",
    "zone": "prairie",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/barkeeper.webp",
+   "turnaround": "assets/species/barkeeper_turnaround.webp",
+   "portrait": "assets/portraits/barkeeper.webp",
+   "portraitShiny": "assets/portraits/barkeeper_shiny.webp",
+   "model": "assets/models/barkeeper.glb",
+   "shinyTexture": "assets/models/barkeeper_shiny.png"
   },
   {
    "number": "026",
@@ -1509,13 +1509,13 @@
    "descriptionFr": "Un petit champignon qui s'endort sous la pluie. Il libère des spores dorées quand il éternue.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/funguy.webp",
+   "turnaround": "assets/species/funguy_turnaround.webp",
+   "portrait": "assets/portraits/funguy.webp",
+   "portraitShiny": "assets/portraits/funguy_shiny.webp",
+   "model": "assets/models/funguy.glb",
+   "shinyTexture": "assets/models/funguy_shiny.png"
   },
   {
    "number": "027",
@@ -1565,13 +1565,13 @@
    "descriptionFr": "Son chapeau est devenu si large que les petites créatures s'abritent dessous pendant les orages.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/mushroof.webp",
+   "turnaround": "assets/species/mushroof_turnaround.webp",
+   "portrait": "assets/portraits/mushroof.webp",
+   "portraitShiny": "assets/portraits/mushroof_shiny.webp",
+   "model": "assets/models/mushroof.glb",
+   "shinyTexture": "assets/models/mushroof_shiny.png"
   },
   {
    "number": "028",
@@ -1621,13 +1621,13 @@
    "descriptionFr": "Un poisson tout rond qui vit dans sa propre bulle et flotte hors de l'eau. Si la bulle éclate, il en souffle une autre en panique.",
    "zone": "unassigned",
    "artStatus": "Turnaround",
-   "inGame": false,
+   "inGame": true,
    "image": "assets/species/bubblub.webp",
    "turnaround": "assets/species/bubblub_turnaround.webp",
    "portrait": "assets/portraits/bubblub.webp",
    "portraitShiny": "assets/portraits/bubblub_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/bubblub.glb",
+   "shinyTexture": "assets/models/bubblub_shiny.png"
   },
   {
    "number": "029",
@@ -1676,13 +1676,13 @@
    "descriptionFr": "Un petit tison qui projette des étincelles chaque fois qu'il éternue. Les campeurs l'adorent.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/kindlet.webp",
+   "turnaround": "assets/species/kindlet_turnaround.webp",
+   "portrait": "assets/portraits/kindlet.webp",
+   "portraitShiny": "assets/portraits/kindlet_shiny.webp",
+   "model": "assets/models/kindlet.glb",
+   "shinyTexture": "assets/models/kindlet_shiny.png"
   },
   {
    "number": "030",
@@ -1728,13 +1728,13 @@
    "descriptionFr": "Un chaton qui ronronne si fort qu'il fait vibrer les vitres. Il s'endort dans n'importe quel carton.",
    "zone": "prairie",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/purrkit.webp",
+   "turnaround": "assets/species/purrkit_turnaround.webp",
+   "portrait": "assets/portraits/purrkit.webp",
+   "portraitShiny": "assets/portraits/purrkit_shiny.webp",
+   "model": "assets/models/purrkit.glb",
+   "shinyTexture": "assets/models/purrkit_shiny.png"
   },
   {
    "number": "031",
@@ -1780,13 +1780,13 @@
    "descriptionFr": "Il s'est noué une cape et un masque, et se prend pour un justicier des toits. Il l'est un peu.",
    "zone": "prairie",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/capurr.webp",
+   "turnaround": "assets/species/capurr_turnaround.webp",
+   "portrait": "assets/portraits/capurr.webp",
+   "portraitShiny": "assets/portraits/capurr_shiny.webp",
+   "model": "assets/models/capurr.glb",
+   "shinyTexture": "assets/models/capurr_shiny.png"
   },
   {
    "number": "032",
@@ -1832,13 +1832,13 @@
    "descriptionFr": "Le gardien des toits de la ville. La nuit, ses yeux qui brillent au sommet des cheminées font peur aux voleurs.",
    "zone": "prairie",
    "artStatus": "Idée",
-   "inGame": false,
-   "image": null,
-   "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "inGame": true,
+   "image": "assets/species/gargatto.webp",
+   "turnaround": "assets/species/gargatto_turnaround.webp",
+   "portrait": "assets/portraits/gargatto.webp",
+   "portraitShiny": "assets/portraits/gargatto_shiny.webp",
+   "model": "assets/models/gargatto.glb",
+   "shinyTexture": "assets/models/gargatto_shiny.png"
   },
   {
    "number": "033",
@@ -2859,13 +2859,13 @@
    "descriptionFr": "Ses voiles ondulent comme une robe de danseuse. Ses filaments laissent des picotements pendant des heures.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
+   "inGame": true,
    "image": "assets/species/veilusa.webp",
    "turnaround": "assets/species/veilusa_turnaround.webp",
    "portrait": "assets/portraits/veilusa.webp",
    "portraitShiny": "assets/portraits/veilusa_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/veilusa.glb",
+   "shinyTexture": "assets/models/veilusa_shiny.png"
   },
   {
    "number": "052",
@@ -2915,13 +2915,13 @@
    "descriptionFr": "Une méduse géante des grands fonds, dont la lueur hypnotise. Ceux qui suivent sa lumière ne remontent jamais tout à fait les mêmes.",
    "zone": "unassigned",
    "artStatus": "Idée",
-   "inGame": false,
+   "inGame": true,
    "image": "assets/species/abyssbrella.webp",
    "turnaround": "assets/species/abyssbrella_turnaround.webp",
    "portrait": "assets/portraits/abyssbrella.webp",
    "portraitShiny": "assets/portraits/abyssbrella_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/abyssbrella.glb",
+   "shinyTexture": "assets/models/abyssbrella_shiny.png"
   },
   {
    "number": "053",
@@ -4691,13 +4691,13 @@
    "descriptionFr": "Il prend la forme de ceux qu'il observe. On ne le remarque que lorsqu'il imite un geste trop tard.",
    "zone": "unassigned",
    "artStatus": "Turnaround",
-   "inGame": false,
+   "inGame": true,
    "image": "assets/species/mimishade.webp",
    "turnaround": "assets/species/mimishade_turnaround.webp",
    "portrait": "assets/portraits/mimishade.webp",
    "portraitShiny": "assets/portraits/mimishade_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/mimishade.glb",
+   "shinyTexture": "assets/models/mimishade_shiny.png"
   },
   {
    "number": "086",
@@ -4743,13 +4743,13 @@
    "descriptionFr": "Quand il ouvre ses bras, il cache le soleil. Les nuits d'éclipse, il marche sur les toits.",
    "zone": "unassigned",
    "artStatus": "Turnaround",
-   "inGame": false,
+   "inGame": true,
    "image": "assets/species/eclipsor.webp",
    "turnaround": "assets/species/eclipsor_turnaround.webp",
    "portrait": "assets/portraits/eclipsor.webp",
    "portraitShiny": "assets/portraits/eclipsor_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/eclipsor.glb",
+   "shinyTexture": "assets/models/eclipsor_shiny.png"
   },
   {
    "number": "087",
@@ -5437,13 +5437,13 @@
    "descriptionFr": "Un géant des mers si grand qu'on le confond avec une île. Il est d'une gentillesse infinie, mais ses colères font des tsunamis.",
    "zone": "unassigned",
    "artStatus": "Turnaround",
-   "inGame": false,
+   "inGame": true,
    "image": "assets/species/leviathug.webp",
    "turnaround": "assets/species/leviathug_turnaround.webp",
    "portrait": "assets/portraits/leviathug.webp",
    "portraitShiny": "assets/portraits/leviathug_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/leviathug.glb",
+   "shinyTexture": "assets/models/leviathug_shiny.png"
   },
   {
    "number": "100",
