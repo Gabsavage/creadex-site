@@ -16,15 +16,17 @@ Les créatures viennent **uniquement** du repo du jeu `creatures-rumble` ; rien 
 | `assets/manifest.json` | badge « En jeu » (espèce riggée dans le jeu) |
 | `art/species/<id>/ref/` | illustration et turnaround (WebP) |
 | `art/2d/src/ui_icons/`, `ui_chrome/` | portraits, médaillons de type, logo, habits du HUD |
-| `tools/creature_factory/out/<id>/<id>.glb` | modèle 3D + texture shiny (`assets/models/`) |
+| `tools/rumble_proto/out/<id>/export/<id>.glb` (usine Rumble+, branches `wip/rumble-plus-*`) | modèle 3D (`assets/models/`) |
 
 ```
 python3 tools/sync_game.py --game ../creatures-rumble
 ```
 
-Les GLB sont générés par l'usine du jeu (gitignorés là-bas) : `pip install bpy` puis
-`python3 tools/creature_factory/run.py <id>` dans creatures-rumble, avant la synchro. Un modèle
-déjà dans `assets/models/` reste si la sortie de l'usine manque.
+Les GLB viennent **uniquement de l'usine Rumble+** (sprawn, ramblaze, jellop pour l'instant), gitignorés
+là-bas : dans creatures-rumble, `python3 tools/rumble_proto/run.py <id>` puis
+`python3 tools/rumble_proto/export.py <id>` (Blender 5.2, `$BLENDER`), avant la synchro
+(`--models <dossier out>` si besoin). Les modèles de la première usine (`tools/creature_factory`) ne sont
+pas repris. Un modèle déjà dans `assets/models/` reste si la sortie de l'usine manque.
 
 Déploiement : chaque push sur `main`. Avec un secret `GAME_REPO_TOKEN` (lecture sur
 creatures-rumble), le workflow régénère les données depuis le main du jeu à chaque déploiement

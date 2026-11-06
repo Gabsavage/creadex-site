@@ -170,7 +170,7 @@ function renderNameRow(s) {
   $('detail-name').textContent = nameOf(s);
   $('detail-tab').textContent = `Créadex · #${s.number}`;
   const shinyMark = view.shiny ? '<img class="shiny-star" src="assets/icons/shiny.webp" alt="Shiny">' : '';
-  $('name-row').innerHTML = `<span class="rarity-pill ol" style="--c:${rarityColor(s.rarity)}">${esc(rarityName(s.rarity))}</span>${elementIcon(s.element, 'el-medal')}${shinyMark}${s.inGame ? `<span class="rarity-pill ol" style="--c:var(--good)">${esc(t('inGame'))}</span>` : ''}`;
+  $('name-row').innerHTML = `<span class="rarity-pill ol" style="--c:${rarityColor(s.rarity)}">${esc(rarityName(s.rarity))}</span>${elementIcon(s.element, 'el-medal')}${shinyMark}`;
 }
 
 function modes(s) {
