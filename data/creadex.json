@@ -221,8 +221,8 @@
    "turnaround": null,
    "portrait": "assets/portraits/elkanopy.webp",
    "portraitShiny": "assets/portraits/elkanopy_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/elkanopy.glb",
+   "shinyTexture": "assets/models/elkanopy_shiny.webp"
   },
   {
    "number": "003",
@@ -332,8 +332,8 @@
    "turnaround": "assets/species/embaa_turnaround.webp",
    "portrait": "assets/portraits/embaa.webp",
    "portraitShiny": "assets/portraits/embaa_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/embaa.glb",
+   "shinyTexture": "assets/models/embaa_shiny.webp"
   },
   {
    "number": "005",
@@ -1139,8 +1139,8 @@
    "turnaround": null,
    "portrait": "assets/portraits/coilectric.webp",
    "portraitShiny": "assets/portraits/coilectric_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/coilectric.glb",
+   "shinyTexture": "assets/models/coilectric_shiny.webp"
   },
   {
    "number": "020",
@@ -1458,8 +1458,8 @@
    "turnaround": null,
    "portrait": "assets/portraits/barkeeper.webp",
    "portraitShiny": "assets/portraits/barkeeper_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/barkeeper.glb",
+   "shinyTexture": "assets/models/barkeeper_shiny.webp"
   },
   {
    "number": "026",
@@ -2920,8 +2920,8 @@
    "turnaround": "assets/species/abyssbrella_turnaround.webp",
    "portrait": "assets/portraits/abyssbrella.webp",
    "portraitShiny": "assets/portraits/abyssbrella_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/abyssbrella.glb",
+   "shinyTexture": "assets/models/abyssbrella_shiny.webp"
   },
   {
    "number": "053",
@@ -4748,8 +4748,8 @@
    "turnaround": "assets/species/eclipsor_turnaround.webp",
    "portrait": "assets/portraits/eclipsor.webp",
    "portraitShiny": "assets/portraits/eclipsor_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/eclipsor.glb",
+   "shinyTexture": "assets/models/eclipsor_shiny.webp"
   },
   {
    "number": "087",
