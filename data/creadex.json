@@ -162,11 +162,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/sprawn.webp",
-   "turnaround": "assets/species/sprawn_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/sprawn.webp",
    "portraitShiny": "assets/portraits/sprawn_shiny.webp",
    "model": "assets/models/sprawn.glb",
-   "shinyTexture": null
+   "shinyTexture": "assets/models/sprawn_shiny.webp"
   },
   {
    "number": "002",
@@ -218,7 +218,7 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/elkanopy.webp",
-   "turnaround": "assets/species/elkanopy_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/elkanopy.webp",
    "portraitShiny": "assets/portraits/elkanopy_shiny.webp",
    "model": null,
@@ -274,11 +274,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/majestree.webp",
-   "turnaround": "assets/species/majestree_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/majestree.webp",
    "portraitShiny": "assets/portraits/majestree_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/majestree.glb",
+   "shinyTexture": "assets/models/majestree_shiny.webp"
   },
   {
    "number": "004",
@@ -388,7 +388,7 @@
    "portrait": "assets/portraits/ramblaze.webp",
    "portraitShiny": "assets/portraits/ramblaze_shiny.webp",
    "model": "assets/models/ramblaze.glb",
-   "shinyTexture": null
+   "shinyTexture": "assets/models/ramblaze_shiny.webp"
   },
   {
    "number": "006",
@@ -442,8 +442,8 @@
    "turnaround": "assets/species/eruptihorn_turnaround.webp",
    "portrait": "assets/portraits/eruptihorn.webp",
    "portraitShiny": "assets/portraits/eruptihorn_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/eruptihorn.glb",
+   "shinyTexture": "assets/models/eruptihorn_shiny.webp"
   },
   {
    "number": "007",
@@ -498,8 +498,8 @@
    "turnaround": "assets/species/narwee_turnaround.webp",
    "portrait": "assets/portraits/narwee.webp",
    "portraitShiny": "assets/portraits/narwee_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/narwee.glb",
+   "shinyTexture": "assets/models/narwee_shiny.webp"
   },
   {
    "number": "008",
@@ -554,8 +554,8 @@
    "turnaround": "assets/species/swirlwhal_turnaround.webp",
    "portrait": "assets/portraits/swirlwhal.webp",
    "portraitShiny": "assets/portraits/swirlwhal_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/swirlwhal.glb",
+   "shinyTexture": "assets/models/swirlwhal_shiny.webp"
   },
   {
    "number": "009",
@@ -610,8 +610,8 @@
    "turnaround": "assets/species/tritonarch_turnaround.webp",
    "portrait": "assets/portraits/tritonarch.webp",
    "portraitShiny": "assets/portraits/tritonarch_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/tritonarch.glb",
+   "shinyTexture": "assets/models/tritonarch_shiny.webp"
   },
   {
    "number": "010",
@@ -659,11 +659,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/pouchip.webp",
-   "turnaround": "assets/species/pouchip_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/pouchip.webp",
    "portraitShiny": "assets/portraits/pouchip_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/pouchip.glb",
+   "shinyTexture": "assets/models/pouchip_shiny.webp"
   },
   {
    "number": "011",
@@ -711,11 +711,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/hamstuff.webp",
-   "turnaround": "assets/species/hamstuff_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/hamstuff.webp",
    "portraitShiny": "assets/portraits/hamstuff_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/hamstuff.glb",
+   "shinyTexture": "assets/models/hamstuff_shiny.webp"
   },
   {
    "number": "012",
@@ -763,11 +763,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/silomster.webp",
-   "turnaround": "assets/species/silomster_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/silomster.webp",
    "portraitShiny": "assets/portraits/silomster_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/silomster.glb",
+   "shinyTexture": "assets/models/silomster_shiny.webp"
   },
   {
    "number": "013",
@@ -816,11 +816,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/chirpuff.webp",
-   "turnaround": "assets/species/chirpuff_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/chirpuff.webp",
    "portraitShiny": "assets/portraits/chirpuff_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/chirpuff.glb",
+   "shinyTexture": "assets/models/chirpuff_shiny.webp"
   },
   {
    "number": "014",
@@ -869,11 +869,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/galark.webp",
-   "turnaround": "assets/species/galark_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/galark.webp",
    "portraitShiny": "assets/portraits/galark_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/galark.glb",
+   "shinyTexture": "assets/models/galark_shiny.webp"
   },
   {
    "number": "015",
@@ -922,11 +922,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/hurricrest.webp",
-   "turnaround": "assets/species/hurricrest_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/hurricrest.webp",
    "portraitShiny": "assets/portraits/hurricrest_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/hurricrest.glb",
+   "shinyTexture": "assets/models/hurricrest_shiny.webp"
   },
   {
    "number": "016",
@@ -978,11 +978,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/petutu.webp",
-   "turnaround": "assets/species/petutu_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/petutu.webp",
    "portraitShiny": "assets/portraits/petutu_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/petutu.glb",
+   "shinyTexture": "assets/models/petutu_shiny.webp"
   },
   {
    "number": "017",
@@ -1030,11 +1030,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/knotsy.webp",
-   "turnaround": "assets/species/knotsy_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/knotsy.webp",
    "portraitShiny": "assets/portraits/knotsy_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/knotsy.glb",
+   "shinyTexture": "assets/models/knotsy_shiny.webp"
   },
   {
    "number": "018",
@@ -1083,11 +1083,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/wigglewatt.webp",
-   "turnaround": "assets/species/wigglewatt_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/wigglewatt.webp",
    "portraitShiny": "assets/portraits/wigglewatt_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/wigglewatt.glb",
+   "shinyTexture": "assets/models/wigglewatt_shiny.webp"
   },
   {
    "number": "019",
@@ -1136,7 +1136,7 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/coilectric.webp",
-   "turnaround": "assets/species/coilectric_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/coilectric.webp",
    "portraitShiny": "assets/portraits/coilectric_shiny.webp",
    "model": null,
@@ -1189,11 +1189,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/stormwyrm.webp",
-   "turnaround": "assets/species/stormwyrm_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/stormwyrm.webp",
    "portraitShiny": "assets/portraits/stormwyrm_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/stormwyrm.glb",
+   "shinyTexture": "assets/models/stormwyrm_shiny.webp"
   },
   {
    "number": "021",
@@ -1243,11 +1243,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/pebbit.webp",
-   "turnaround": "assets/species/pebbit_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/pebbit.webp",
    "portraitShiny": "assets/portraits/pebbit_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/pebbit.glb",
+   "shinyTexture": "assets/models/pebbit_shiny.webp"
   },
   {
    "number": "022",
@@ -1297,11 +1297,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/rumblock.webp",
-   "turnaround": "assets/species/rumblock_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/rumblock.webp",
    "portraitShiny": "assets/portraits/rumblock_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/rumblock.glb",
+   "shinyTexture": "assets/models/rumblock_shiny.webp"
   },
   {
    "number": "023",
@@ -1351,11 +1351,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/montitan.webp",
-   "turnaround": "assets/species/montitan_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/montitan.webp",
    "portraitShiny": "assets/portraits/montitan_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/montitan.glb",
+   "shinyTexture": "assets/models/montitan_shiny.webp"
   },
   {
    "number": "024",
@@ -1403,11 +1403,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/yipup.webp",
-   "turnaround": "assets/species/yipup_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/yipup.webp",
    "portraitShiny": "assets/portraits/yipup_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/yipup.glb",
+   "shinyTexture": "assets/models/yipup_shiny.webp"
   },
   {
    "number": "025",
@@ -1455,7 +1455,7 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/barkeeper.webp",
-   "turnaround": "assets/species/barkeeper_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/barkeeper.webp",
    "portraitShiny": "assets/portraits/barkeeper_shiny.webp",
    "model": null,
@@ -1511,11 +1511,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/funguy.webp",
-   "turnaround": "assets/species/funguy_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/funguy.webp",
    "portraitShiny": "assets/portraits/funguy_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/funguy.glb",
+   "shinyTexture": "assets/models/funguy_shiny.webp"
   },
   {
    "number": "027",
@@ -1567,11 +1567,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/mushroof.webp",
-   "turnaround": "assets/species/mushroof_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/mushroof.webp",
    "portraitShiny": "assets/portraits/mushroof_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/mushroof.glb",
+   "shinyTexture": "assets/models/mushroof_shiny.webp"
   },
   {
    "number": "028",
@@ -1621,13 +1621,13 @@
    "descriptionFr": "Un poisson tout rond qui vit dans sa propre bulle et flotte hors de l'eau. Si la bulle éclate, il en souffle une autre en panique.",
    "zone": "unassigned",
    "artStatus": "Turnaround",
-   "inGame": true,
+   "inGame": false,
    "image": "assets/species/bubblub.webp",
    "turnaround": "assets/species/bubblub_turnaround.webp",
    "portrait": "assets/portraits/bubblub.webp",
    "portraitShiny": "assets/portraits/bubblub_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/bubblub.glb",
+   "shinyTexture": "assets/models/bubblub_shiny.webp"
   },
   {
    "number": "029",
@@ -1678,11 +1678,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/kindlet.webp",
-   "turnaround": "assets/species/kindlet_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/kindlet.webp",
    "portraitShiny": "assets/portraits/kindlet_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/kindlet.glb",
+   "shinyTexture": "assets/models/kindlet_shiny.webp"
   },
   {
    "number": "030",
@@ -1730,11 +1730,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/purrkit.webp",
-   "turnaround": "assets/species/purrkit_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/purrkit.webp",
    "portraitShiny": "assets/portraits/purrkit_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/purrkit.glb",
+   "shinyTexture": "assets/models/purrkit_shiny.webp"
   },
   {
    "number": "031",
@@ -1780,13 +1780,13 @@
    "descriptionFr": "Il s'est noué une cape et un masque, et se prend pour un justicier des toits. Il l'est un peu.",
    "zone": "prairie",
    "artStatus": "Idée",
-   "inGame": true,
+   "inGame": false,
    "image": "assets/species/capurr.webp",
-   "turnaround": "assets/species/capurr_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/capurr.webp",
    "portraitShiny": "assets/portraits/capurr_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/capurr.glb",
+   "shinyTexture": "assets/models/capurr_shiny.webp"
   },
   {
    "number": "032",
@@ -1834,11 +1834,11 @@
    "artStatus": "Idée",
    "inGame": true,
    "image": "assets/species/gargatto.webp",
-   "turnaround": "assets/species/gargatto_turnaround.webp",
+   "turnaround": null,
    "portrait": "assets/portraits/gargatto.webp",
    "portraitShiny": "assets/portraits/gargatto_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/gargatto.glb",
+   "shinyTexture": "assets/models/gargatto_shiny.webp"
   },
   {
    "number": "033",
@@ -1886,12 +1886,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/dandelette.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/dandelette.webp",
+   "portraitShiny": "assets/portraits/dandelette_shiny.webp",
+   "model": "assets/models/dandelette.glb",
+   "shinyTexture": "assets/models/dandelette_shiny.webp"
   },
   {
    "number": "034",
@@ -1939,12 +1939,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/plumerina.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/plumerina.webp",
+   "portraitShiny": "assets/portraits/plumerina_shiny.webp",
+   "model": "assets/models/plumerina.glb",
+   "shinyTexture": "assets/models/plumerina_shiny.webp"
   },
   {
    "number": "035",
@@ -1992,12 +1992,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/zephyrion.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/zephyrion.webp",
+   "portraitShiny": "assets/portraits/zephyrion_shiny.webp",
+   "model": "assets/models/zephyrion.glb",
+   "shinyTexture": "assets/models/zephyrion_shiny.webp"
   },
   {
    "number": "036",
@@ -2045,12 +2045,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/bulbuzz.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/bulbuzz.webp",
+   "portraitShiny": "assets/portraits/bulbuzz_shiny.webp",
+   "model": "assets/models/bulbuzz.glb",
+   "shinyTexture": "assets/models/bulbuzz_shiny.webp"
   },
   {
    "number": "037",
@@ -2098,12 +2098,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/lamplurk.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/lamplurk.webp",
+   "portraitShiny": "assets/portraits/lamplurk_shiny.webp",
+   "model": "assets/models/lamplurk.glb",
+   "shinyTexture": "assets/models/lamplurk_shiny.webp"
   },
   {
    "number": "038",
@@ -2154,12 +2154,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/umbreltle.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/umbreltle.webp",
+   "portraitShiny": "assets/portraits/umbreltle_shiny.webp",
+   "model": "assets/models/umbreltle.glb",
+   "shinyTexture": "assets/models/umbreltle_shiny.webp"
   },
   {
    "number": "039",
@@ -2210,12 +2210,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/torrentoise.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/torrentoise.webp",
+   "portraitShiny": "assets/portraits/torrentoise_shiny.webp",
+   "model": "assets/models/torrentoise.glb",
+   "shinyTexture": "assets/models/torrentoise_shiny.webp"
   },
   {
    "number": "040",
@@ -2262,12 +2262,12 @@
    "zone": "prairie",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/doodlet.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/doodlet.webp",
+   "portraitShiny": "assets/portraits/doodlet_shiny.webp",
+   "model": "assets/models/doodlet.glb",
+   "shinyTexture": "assets/models/doodlet_shiny.webp"
   },
   {
    "number": "041",
@@ -2316,12 +2316,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/ribbitox.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/ribbitox.webp",
+   "portraitShiny": "assets/portraits/ribbitox_shiny.webp",
+   "model": "assets/models/ribbitox.glb",
+   "shinyTexture": "assets/models/ribbitox_shiny.webp"
   },
   {
    "number": "042",
@@ -2369,12 +2369,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/sparkit.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/sparkit.webp",
+   "portraitShiny": "assets/portraits/sparkit_shiny.webp",
+   "model": "assets/models/sparkit.glb",
+   "shinyTexture": "assets/models/sparkit_shiny.webp"
   },
   {
    "number": "043",
@@ -2421,12 +2421,12 @@
    "zone": "prairie",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/bounbun.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/bounbun.webp",
+   "portraitShiny": "assets/portraits/bounbun_shiny.webp",
+   "model": "assets/models/bounbun.glb",
+   "shinyTexture": "assets/models/bounbun_shiny.webp"
   },
   {
    "number": "044",
@@ -2473,12 +2473,12 @@
    "zone": "prairie",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/leaporis.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/leaporis.webp",
+   "portraitShiny": "assets/portraits/leaporis_shiny.webp",
+   "model": "assets/models/leaporis.glb",
+   "shinyTexture": "assets/models/leaporis_shiny.webp"
   },
   {
    "number": "045",
@@ -2529,12 +2529,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/chameleaf.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/chameleaf.webp",
+   "portraitShiny": "assets/portraits/chameleaf_shiny.webp",
+   "model": "assets/models/chameleaf.glb",
+   "shinyTexture": "assets/models/chameleaf_shiny.webp"
   },
   {
    "number": "046",
@@ -2585,12 +2585,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/camoleon.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/camoleon.webp",
+   "portraitShiny": "assets/portraits/camoleon_shiny.webp",
+   "model": "assets/models/camoleon.glb",
+   "shinyTexture": "assets/models/camoleon_shiny.webp"
   },
   {
    "number": "047",
@@ -2638,12 +2638,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/tornadot.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/tornadot.webp",
+   "portraitShiny": "assets/portraits/tornadot_shiny.webp",
+   "model": "assets/models/tornadot.glb",
+   "shinyTexture": "assets/models/tornadot_shiny.webp"
   },
   {
    "number": "048",
@@ -2693,12 +2693,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/wickling.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/wickling.webp",
+   "portraitShiny": "assets/portraits/wickling_shiny.webp",
+   "model": "assets/models/wickling.glb",
+   "shinyTexture": "assets/models/wickling_shiny.webp"
   },
   {
    "number": "049",
@@ -2748,12 +2748,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/lusterror.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/lusterror.webp",
+   "portraitShiny": "assets/portraits/lusterror_shiny.webp",
+   "model": "assets/models/lusterror.glb",
+   "shinyTexture": "assets/models/lusterror_shiny.webp"
   },
   {
    "number": "050",
@@ -2809,7 +2809,7 @@
    "portrait": "assets/portraits/jellop.webp",
    "portraitShiny": "assets/portraits/jellop_shiny.webp",
    "model": "assets/models/jellop.glb",
-   "shinyTexture": null
+   "shinyTexture": "assets/models/jellop_shiny.webp"
   },
   {
    "number": "051",
@@ -2864,8 +2864,8 @@
    "turnaround": "assets/species/veilusa_turnaround.webp",
    "portrait": "assets/portraits/veilusa.webp",
    "portraitShiny": "assets/portraits/veilusa_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/veilusa.glb",
+   "shinyTexture": "assets/models/veilusa_shiny.webp"
   },
   {
    "number": "052",
@@ -2968,12 +2968,12 @@
    "zone": "prairie",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/snoozle.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/snoozle.webp",
+   "portraitShiny": "assets/portraits/snoozle_shiny.webp",
+   "model": "assets/models/snoozle.glb",
+   "shinyTexture": "assets/models/snoozle_shiny.webp"
   },
   {
    "number": "054",
@@ -3022,12 +3022,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/slugglow.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/slugglow.webp",
+   "portraitShiny": "assets/portraits/slugglow_shiny.webp",
+   "model": "assets/models/slugglow.glb",
+   "shinyTexture": "assets/models/slugglow_shiny.webp"
   },
   {
    "number": "055",
@@ -3078,12 +3078,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/rolypip.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/rolypip.webp",
+   "portraitShiny": "assets/portraits/rolypip_shiny.webp",
+   "model": "assets/models/rolypip.glb",
+   "shinyTexture": "assets/models/rolypip_shiny.webp"
   },
   {
    "number": "056",
@@ -3131,12 +3131,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/kitelet.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/kitelet.webp",
+   "portraitShiny": "assets/portraits/kitelet_shiny.webp",
+   "model": "assets/models/kitelet.glb",
+   "shinyTexture": "assets/models/kitelet_shiny.webp"
   },
   {
    "number": "057",
@@ -3240,12 +3240,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/puddlurk.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/puddlurk.webp",
+   "portraitShiny": "assets/portraits/puddlurk_shiny.webp",
+   "model": "assets/models/puddlurk.glb",
+   "shinyTexture": "assets/models/puddlurk_shiny.webp"
   },
   {
    "number": "059",
@@ -3347,12 +3347,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/battbit.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/battbit.webp",
+   "portraitShiny": "assets/portraits/battbit_shiny.webp",
+   "model": "assets/models/battbit.glb",
+   "shinyTexture": "assets/models/battbit_shiny.webp"
   },
   {
    "number": "061",
@@ -3401,12 +3401,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/goobly.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/goobly.webp",
+   "portraitShiny": "assets/portraits/goobly_shiny.webp",
+   "model": "assets/models/goobly.glb",
+   "shinyTexture": "assets/models/goobly_shiny.webp"
   },
   {
    "number": "062",
@@ -3455,12 +3455,12 @@
    "zone": "unassigned",
    "artStatus": "Idée",
    "inGame": false,
-   "image": null,
+   "image": "assets/species/bogglob.webp",
    "turnaround": null,
-   "portrait": null,
-   "portraitShiny": null,
-   "model": null,
-   "shinyTexture": null
+   "portrait": "assets/portraits/bogglob.webp",
+   "portraitShiny": "assets/portraits/bogglob_shiny.webp",
+   "model": "assets/models/bogglob.glb",
+   "shinyTexture": "assets/models/bogglob_shiny.webp"
   },
   {
    "number": "063",
@@ -4644,8 +4644,8 @@
    "turnaround": "assets/species/shadlet_turnaround.webp",
    "portrait": "assets/portraits/shadlet.webp",
    "portraitShiny": "assets/portraits/shadlet_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/shadlet.glb",
+   "shinyTexture": "assets/models/shadlet_shiny.webp"
   },
   {
    "number": "085",
@@ -4696,8 +4696,8 @@
    "turnaround": "assets/species/mimishade_turnaround.webp",
    "portrait": "assets/portraits/mimishade.webp",
    "portraitShiny": "assets/portraits/mimishade_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/mimishade.glb",
+   "shinyTexture": "assets/models/mimishade_shiny.webp"
   },
   {
    "number": "086",
@@ -5386,8 +5386,8 @@
    "turnaround": "assets/species/whalet_turnaround.webp",
    "portrait": "assets/portraits/whalet.webp",
    "portraitShiny": "assets/portraits/whalet_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/whalet.glb",
+   "shinyTexture": "assets/models/whalet_shiny.webp"
   },
   {
    "number": "099",
@@ -5442,8 +5442,8 @@
    "turnaround": "assets/species/leviathug_turnaround.webp",
    "portrait": "assets/portraits/leviathug.webp",
    "portraitShiny": "assets/portraits/leviathug_shiny.webp",
-   "model": null,
-   "shinyTexture": null
+   "model": "assets/models/leviathug.glb",
+   "shinyTexture": "assets/models/leviathug_shiny.webp"
   },
   {
    "number": "100",

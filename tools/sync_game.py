@@ -211,18 +211,18 @@ def main():
                 save_webp(src, os.path.join(SITE, entry[field]), 256)
 
         out = os.path.join(models_root, sid, "export")
-        glb, shiny = os.path.join(out, f"{sid}.glb"), os.path.join(out, f"{sid}_shiny.png")
+        glb, shiny = os.path.join(out, f"{sid}.glb"), os.path.join(out, f"{sid}_ColorMap_shiny.png")  # Rumble+ shiny ColorMap
         model_dst = os.path.join(SITE, "assets/models", f"{sid}.glb")
-        shiny_dst = os.path.join(SITE, "assets/models", f"{sid}_shiny.png")
+        shiny_dst = os.path.join(SITE, "assets/models", f"{sid}_shiny.webp")
         if os.path.exists(glb):
             os.makedirs(os.path.dirname(model_dst), exist_ok=True)
             shutil.copyfile(glb, model_dst)
             if os.path.exists(shiny):
-                shutil.copyfile(shiny, shiny_dst)
+                save_webp(shiny, shiny_dst, 512, quality=92)
         if os.path.exists(model_dst):
             entry["model"] = f"assets/models/{sid}.glb"
             if os.path.exists(shiny_dst):
-                entry["shinyTexture"] = f"assets/models/{sid}_shiny.png"
+                entry["shinyTexture"] = f"assets/models/{sid}_shiny.webp"
         species.append(entry)
 
     # Family: the csv names the first species of the family (French name); the site uses its id.
