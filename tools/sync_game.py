@@ -57,7 +57,8 @@ CHROME = ["tile_common", "tile_uncommon", "tile_rare", "tile_epic", "tile_legend
           "glyph_swap", "glyph_map", "glyph_lock", "glyph_attack_melee", "glyph_attack_projectile",
           "glyph_attack_ring", "glyph_attack_beam", "glyph_attack_chain", "glyph_attack_dash",
           "glyph_attack_heal", "glyph_arrow", "sparkle", "check"]
-ICONS = ["logo", "shiny", "stat_hp", "stat_atk", "stat_spd", "stat_power", "zonecard_prairie"]
+ICONS = ["logo", "shiny", "stat_hp", "stat_atk", "stat_spd", "stat_power", "zonecard_prairie",
+         "loading_balloon", "loading_clover", "loading_village"]  # loading_*: the game's loading screens
 BASIC_SHAPE = {"strike": "melee", "shot": "projectile", "sweep": "ring", "zap": "beam"}
 SPECIAL_SHAPE = {"fire_zone": "ring", "tidal_wave": "ring", "bloom": "heal", "gust_dash": "dash",
                  "chain_lightning": "chain"}
@@ -146,7 +147,7 @@ def main():
         shutil.copyfile(os.path.join(chrome, key + ".png"), os.path.join(out_ui, key + ".png"))
     for key in ICONS:
         save_webp(os.path.join(icons, key + ".png"), os.path.join(SITE, "assets/icons", key + ".webp"),
-                  1024 if key in ("logo", "zonecard_prairie") else 192)
+                  1280 if key.startswith("loading_") else 1024 if key in ("logo", "zonecard_prairie") else 192)
     for element in elements:
         save_webp(os.path.join(icons, f"element_{element}.png"),
                   os.path.join(SITE, "assets/elements", element + ".webp"), 160)

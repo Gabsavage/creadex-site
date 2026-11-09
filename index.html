@@ -10,7 +10,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261106b">
+  <style>
+    /* Loading screen: inline so it paints before the fonts, the stylesheet and the data. */
+    .loader { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+      padding: max(18px, env(safe-area-inset-top)) 18px max(26px, env(safe-area-inset-bottom)); background: #9cc7e6 center / cover no-repeat;
+      font: 900 18px "Source Sans 3", system-ui, sans-serif; color: #fff; transition: opacity .45s ease, visibility .45s; }
+    .loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader::before { content: ""; position: absolute; inset: auto 0 0 0; height: 46%; background: linear-gradient(180deg, transparent, rgba(16, 22, 30, .72)); }
+    .loader > * { position: relative; }
+    .loader-logo { width: min(440px, 72vw); height: auto; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .3)); animation: loader-bob 2.4s ease-in-out infinite; }
+    .loader-foot { width: min(560px, 100%); display: grid; gap: 10px; justify-items: center; }
+    .loader .ol { color: #fff; -webkit-text-stroke: .15em #161616; paint-order: stroke fill; }
+    .loader-label { font-size: clamp(20px, 3.4vw, 28px); }
+    .loader-bar { width: 100%; height: 22px; border-radius: 99px; background: #3a3a3a; border: 3px solid #161616; overflow: hidden; }
+    .loader-bar i { display: block; height: 100%; width: 4%; border-radius: 99px; background: linear-gradient(180deg, #fbe3a0, #f7cc62 55%, #e0a83a); transition: width .25s ease; }
+    .loader-tip { font-size: clamp(14px, 2.2vw, 17px); text-align: center; min-height: 1.3em; }
+    /* Wide screens: the logo in the top left corner, the art's subject (balloon, Clover, village) stays clear. */
+    @media (min-aspect-ratio: 5/4) { .loader { align-items: flex-start; } .loader-logo { width: min(340px, 30vw); } .loader-foot { align-self: center; } }
+    @keyframes loader-bob { 50% { transform: translateY(-8px); } }
+    @media (prefers-reduced-motion: reduce) { .loader-logo { animation: none; } .loader { transition: none; } }
+  </style>
+  <link rel="stylesheet" href="styles.css?v=20261109a">
   <script type="importmap">
     { "imports": {
       "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
@@ -19,6 +39,23 @@
   </script>
 </head>
 <body>
+  <div class="loader" id="loader" role="status" aria-live="polite">
+    <img class="loader-logo" src="assets/icons/logo.webp" alt="Creature Rumble">
+    <div class="loader-foot">
+      <div class="loader-label ol" id="loader-label">Loading the Créadex…</div>
+      <div class="loader-bar" aria-hidden="true"><i id="loader-fill"></i></div>
+      <div class="loader-tip ol" id="loader-tip"></div>
+    </div>
+  </div>
+  <script>
+    // Before anything else loads: one of the game's three loading screens, in the reader's language.
+    (function () {
+      var art = ['balloon', 'clover', 'village'][Math.floor(Math.random() * 3)];
+      document.getElementById('loader').style.backgroundImage = 'url(assets/icons/loading_' + art + '.webp)';
+      var fr = false; try { fr = localStorage.getItem('creadex-language') === 'fr'; } catch (e) {}
+      if (fr) document.getElementById('loader-label').textContent = 'Chargement du Créadex…';
+    })();
+  </script>
   <div class="world" aria-hidden="true"></div>
 
   <div class="page" id="top">
@@ -85,6 +122,6 @@
     </div>
   </div>
 
-  <script type="module" src="app.js?v=20261106b"></script>
+  <script type="module" src="app.js?v=20261109a"></script>
 </body>
 </html>

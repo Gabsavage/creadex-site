@@ -8,8 +8,18 @@ import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 
 const loader = new GLTFLoader();
 const cache = new Map();
-const loadGltf = url => {
-  if (!cache.has(url)) cache.set(url, loader.loadAsync(url).catch(error => { cache.delete(url); throw error; }));
+const progressOf = new Map(); // url -> listeners of its download progress (0..1)
+const loadGltf = (url, onProgress) => {
+  if (onProgress) { if (!progressOf.has(url)) progressOf.set(url, new Set()); progressOf.get(url).add(onProgress); }
+  if (!cache.has(url)) {
+    const tell = event => {
+      if (!event.lengthComputable || !event.total) return;
+      progressOf.get(url)?.forEach(f => f(event.loaded / event.total));
+    };
+    cache.set(url, loader.loadAsync(url, tell)
+      .finally(() => progressOf.delete(url))
+      .catch(error => { cache.delete(url); throw error; }));
+  }
   return cache.get(url);
 };
 const textureLoader = new THREE.TextureLoader();
@@ -119,7 +129,7 @@ export function createViewer(container) {
     controls.update();
   }
 
-  async function show({ model, shinyTexture, element, color, habitats, shiny = false }) {
+  async function show({ model, shinyTexture, element, color, habitats, shiny = false, onProgress }) {
     const mine = ++token;
     if (creature) { world.remove(creature); creature = null; }
     mixer = null; actions = {}; current = null; baseMap = shinyMap = material = null;
@@ -127,7 +137,7 @@ export function createViewer(container) {
     await setHabitat(element, habitats, color);
     frame(4); // until the model is in, never leave the camera inside the stage
     if (!model) return { actions: [] };
-    const gltf = await loadGltf(model);
+    const gltf = await loadGltf(model, onProgress);
     if (mine !== token) return null;
     creature = cloneSkinned(gltf.scene);
     // glTF +Z faces the camera (the factory's GLB: Blender -Y front exported to +Z)

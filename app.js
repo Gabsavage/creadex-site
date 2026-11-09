@@ -1,5 +1,5 @@
 // Créadex site: data/creadex.json is generated from the game repository by tools/sync_game.py.
-import { createBackdrop } from './backdrop.js?v=20261106b';
+import { createBackdrop } from './backdrop.js?v=20261109a';
 const TEXT = {
   fr: {
     search: 'Nom, n°, type…', reset: 'Effacer', filters: 'Filtres', type: 'Type', rarity: 'Rareté', show: 'Voir', all: 'Tous',
@@ -10,7 +10,7 @@ const TEXT = {
     weak: 'Faiblesses', resist: 'Résistances', noneListed: 'Aucune', evolutions: 'Évolutions', size: 'Taille', form: 'Forme',
     zone: 'Zone', unassigned: 'Pas encore', lent: 'Prêtée', view3d: '3D', art: 'Dessin', turn: 'Turnaround', shiny: 'Shiny',
     loading: 'Chargement…', no3d: 'Modèle 3D à venir', noArt: 'Illustration à venir', provisional: 'stats provisoires',
-    noStats: 'stats à définir', provisionalHint: 'Stats de départ du jeu (aucune valeur dans le Créadex) · * attaque par défaut du type', prev: 'Précédente', next: 'Suivante', close: 'Fermer', inGame: 'EN JEU', anim: {
+    noStats: 'stats à définir', loadError: 'Impossible de charger le Créadex. Recharge la page.', tips: ['Touche une créature pour la voir en 3D.', 'Fais tourner le modèle 3D du doigt.', 'Le bouton Shiny montre la version rare d\'une créature.', 'Tape / pour chercher une créature.', 'Filtre par type avec les médaillons.'], provisionalHint: 'Stats de départ du jeu (aucune valeur dans le Créadex) · * attaque par défaut du type', prev: 'Précédente', next: 'Suivante', close: 'Fermer', inGame: 'EN JEU', anim: {
       Idle: 'Repos', Walk: 'Marche', Attack: 'Attaque', Special: 'Spécial', Hurt: 'Touché', Victory: 'Victoire', Spawn: 'Arrivée', Wobble: 'Capture', Faint: 'K.O.' },
     stage: ['Indépendante', 'Chibi', 'Medium', 'Imposante'],
   },
@@ -23,7 +23,7 @@ const TEXT = {
     weak: 'Weaknesses', resist: 'Resistances', noneListed: 'None', evolutions: 'Evolutions', size: 'Size', form: 'Form',
     zone: 'Zone', unassigned: 'Not yet', lent: 'Lent', view3d: '3D', art: 'Art', turn: 'Turnaround', shiny: 'Shiny',
     loading: 'Loading…', no3d: '3D model coming soon', noArt: 'Artwork coming soon', provisional: 'provisional stats',
-    noStats: 'stats to be set', provisionalHint: 'Game starting stats (none in the Créadex yet) · * default attack of the type', prev: 'Previous', next: 'Next', close: 'Close', inGame: 'IN GAME', anim: {
+    noStats: 'stats to be set', loadError: 'Could not load the Créadex. Please reload the page.', tips: ['Tap a creature to see it in 3D.', 'Drag the 3D model to turn it around.', 'The Shiny button shows a creature\'s rare colors.', 'Press / to search for a creature.', 'Filter by type with the medallions.'], provisionalHint: 'Game starting stats (none in the Créadex yet) · * default attack of the type', prev: 'Previous', next: 'Next', close: 'Close', inGame: 'IN GAME', anim: {
       Idle: 'Idle', Walk: 'Walk', Attack: 'Attack', Special: 'Special', Hurt: 'Hurt', Victory: 'Victory', Spawn: 'Spawn', Wobble: 'Wobble', Faint: 'Faint' },
     stage: ['Independent', 'Chibi', 'Medium', 'Imposing'],
   },
@@ -185,7 +185,7 @@ function renderSide(s) {
 }
 
 async function getViewer() {
-  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261106b').then(m => m.createViewer);
+  if (!viewerPromise) viewerPromise = import('./viewer.js?v=20261109a').then(m => m.createViewer);
   return viewerPromise;
 }
 
@@ -201,14 +201,19 @@ async function renderStage(s) {
   if (view.mode === 'turn' && s.turnaround) { releaseViewer(); stage.innerHTML = flat(`<img class="turn" src="${esc(s.turnaround)}" alt="${esc(nameOf(s))} turnaround">`); return; }
   // 3D: the habitat of its type, the creature on it when it has a model.
   const fallback = s.model ? null : (artOf(s) ? `<img src="${esc(view.shiny && s.portraitShiny ? s.portraitShiny : artOf(s))}" alt="${esc(nameOf(s))}">` : `<img class="ghost" src="assets/elements/${esc(s.element)}.webp" alt="">`);
-  if (!viewer) { stage.innerHTML = `<div class="loading ol">${esc(t('loading'))}</div>`; }
+  // Loading card (the viewer's code, then the model): label + bar filled by the download progress.
+  const loading = `<div class="loading"><span class="ol">${esc(t('loading'))}</span><div class="mini-bar"><i></i></div></div>`;
+  if (!viewer) stage.innerHTML = loading;
+  const setBar = k => { const bar = stage.querySelector('.mini-bar i'); if (bar) bar.style.width = `${Math.round(8 + k * 92)}%`; };
   try {
     const create = await getViewer();
     if (active !== s || view.mode !== '3d') return;
     if (!viewer) { stage.innerHTML = ''; viewer = create(stage); }
     stage.querySelectorAll('.flat, .note, .loading').forEach(n => n.remove());
     if (fallback) stage.insertAdjacentHTML('beforeend', flat(fallback, s.image ? t('no3d') : t('noArt')));
-    const shown3d = await viewer.show({ model: s.model, shinyTexture: s.shinyTexture, element: s.element, color: elementColor(s.element), habitats, shiny: view.shiny });
+    else stage.insertAdjacentHTML('beforeend', loading);
+    const shown3d = await viewer.show({ model: s.model, shinyTexture: s.shinyTexture, element: s.element, color: elementColor(s.element), habitats, shiny: view.shiny, onProgress: setBar });
+    if (active === s) stage.querySelectorAll('.loading').forEach(n => n.remove());
     if (!shown3d || active !== s) return;
     $('stage-actions').innerHTML = ANIMS.filter(a => shown3d.actions.includes(a)).map(a =>
       `<button type="button" class="btn ${a === 'Idle' ? 'btn-gold' : 'btn-secondary'}" data-anim="${a}"><span class="ol">${esc(t('anim')[a])}</span></button>`).join('');
@@ -324,22 +329,83 @@ function openFromHash() {
   if (s) openDetail(s, { push: false }); else if (!id) closeDetail({ fromHistory: true });
 }
 
+// ── Loading screen (markup and style inline in index.html) ─────────────
+const loaderUi = {
+  shown: performance.now(),
+  value: 0.04,
+  set(k) {
+    this.value = Math.max(this.value, Math.min(1, k));
+    const fill = $('loader-fill');
+    if (fill) fill.style.width = `${Math.round(this.value * 100)}%`;
+  },
+  tip() {
+    const tips = t('tips');
+    const el = $('loader-tip');
+    if (el && tips) el.textContent = tips[Math.floor(Math.random() * tips.length)];
+  },
+  async done() {
+    this.set(1);
+    const wait = Math.max(250, 900 - (performance.now() - this.shown)); // never a flash
+    await new Promise(r => setTimeout(r, wait));
+    const el = $('loader');
+    if (!el) return;
+    el.classList.add('done');
+    setTimeout(() => el.remove(), 600);
+    // Warm the 3D viewer's code while the reader looks at the list.
+    const idle = window.requestIdleCallback || (f => setTimeout(f, 1200));
+    idle(() => getViewer().catch(() => {}));
+  },
+  fail() {
+    const label = $('loader-label');
+    if (label) label.textContent = t('loadError');
+    $('loader')?.querySelector('.loader-bar')?.remove();
+  },
+};
+
+// Images of the first cards on screen: the list appears with its pictures, not empty tiles.
+function preloadFirstCards(onEach) {
+  const perRow = Math.max(2, Math.floor((innerWidth - 40) / (innerWidth < 720 ? 104 : 164)));
+  const rows = Math.ceil(innerHeight / (innerWidth < 720 ? 170 : 230)) + 1;
+  const first = shown.slice(0, perRow * rows);
+  const urls = [...new Set(first.map(s => artOf(s) || `assets/elements/${s.element}.webp`))];
+  if (!urls.length) return Promise.resolve();
+  let count = 0;
+  return Promise.all(urls.map(url => new Promise(resolve => {
+    const img = new Image();
+    img.onload = img.onerror = () => { count += 1; onEach(count / urls.length); resolve(); };
+    img.src = url;
+  })));
+}
+
 async function start() {
   bind();
   applyLanguage();
+  loaderUi.tip();
+  loaderUi.set(0.1);
+  const fonts = (document.fonts?.ready || Promise.resolve()).then(() => loaderUi.set(loaderUi.value + 0.1));
   try {
     const [creadex, hab] = await Promise.all([
-      fetch('data/creadex.json?v=20261106b', { cache: 'no-cache' }).then(r => r.json()),
-      fetch('data/habitats.json?v=20261106b').then(r => r.json()).catch(() => ({ habitats: {} })),
+      fetch('data/creadex.json?v=20261109a', { cache: 'no-cache' }).then(r => r.json()),
+      fetch('data/habitats.json?v=20261109a').then(r => r.json()).catch(() => ({ habitats: {} })),
     ]);
     data = creadex; habitats = hab.habitats || {};
     data.species.forEach(s => byNumber.set(s.number, s));
   } catch (error) {
     console.error(error);
-    $('grid').innerHTML = '<p class="ol">Impossible de charger le Créadex.</p>';
+    $('grid').innerHTML = `<p class="ol">${esc(t('loadError'))}</p>`;
+    loaderUi.fail();
     return;
   }
-  applyLanguage(); renderFilters(); renderGrid(); openFromHash();
+  loaderUi.set(0.45);
+  applyLanguage(); renderFilters(); renderGrid();
+  // The pictures of the first screen (50 % of the bar), at most 8 s: a slow image never blocks the site.
+  const base = loaderUi.value;
+  await Promise.race([
+    Promise.all([fonts, preloadFirstCards(k => loaderUi.set(base + k * (0.97 - base)))]),
+    new Promise(r => setTimeout(r, 8000)),
+  ]);
+  await loaderUi.done();
+  openFromHash();
 }
 
 start();

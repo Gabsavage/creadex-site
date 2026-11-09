@@ -159,7 +159,9 @@ img { display: block; }
 .stage .flat img.turn { max-width: 98%; max-height: 98%; }
 .stage .flat img.ghost { width: 40%; opacity: .7; }
 .stage .note { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); font-size: 16px; font-weight: 900; white-space: nowrap; background: rgba(0, 0, 0, .45); border-radius: 999px; padding: 3px 14px; }
-.stage .loading { position: absolute; inset: 0; display: grid; place-items: center; font-size: 22px; font-weight: 900; }
+.stage .loading { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 10px; font-size: 22px; font-weight: 900; pointer-events: none; }
+.mini-bar { width: min(220px, 60%); height: 14px; border-radius: 99px; background: var(--progress-track); border: 2px solid var(--card-dark); overflow: hidden; }
+.mini-bar i { display: block; height: 100%; width: 8%; border-radius: 99px; background: var(--progress-fill); transition: width .2s ease; }
 .stage-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; min-height: 0; }
 .stage-actions .btn { --h: 44px; min-width: 0; }
 .creature-name { font-size: clamp(30px, 4.3vw, 46px); font-weight: 900; line-height: 1; text-align: center; -webkit-text-stroke-width: .12em; }
